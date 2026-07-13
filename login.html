@@ -9,6 +9,67 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
 <script src="auth.js"></script>
+<script src="i18n.js"></script>
+<script>
+        window.NEOP_TRANSLATIONS = {
+          en: {
+            'header.tagline': 'NATIONAL EMERGENCY OPERATIONS PLATFORM',
+            'auth.title': 'Institutional Access',
+            'auth.subtitle': 'Please authenticate to access the national incident response network.',
+            'auth.error': 'Invalid credentials. Try user/user or admin/admin.',
+            'auth.idLabel': 'Institutional ID / Email',
+            'auth.idPlaceholder': 'user or admin',
+            'auth.tokenLabel': 'Security Token',
+            'auth.tokenRequest': 'Request New Token',
+            'auth.tokenPlaceholder': 'password',
+            'auth.signIn': 'SIGN IN',
+            'auth.encryption': 'End-to-End Encryption Active',
+            'portals.title': 'Access Authorized Portals',
+            'portals.command.title': 'Command & Strategy',
+            'portals.command.body': 'Provincial & National Administrative oversight.',
+            'portals.regional.title': 'Regional Oversight',
+            'portals.regional.body': 'Supervisors and Operations Center personnel.',
+            'portals.logistics.title': 'Logistics & Fleet',
+            'portals.logistics.body': 'Supply chain and mobile asset management.',
+            'support.title': 'System Support',
+            'support.body': 'Experiencing authentication issues or token expiration? Contact the duty tech officer immediately.',
+            'support.button': 'OPEN SUPPORT TICKET',
+            'footer.security': 'Security Policy',
+            'footer.status': 'System Status',
+            'footer.contact': 'Contact Support',
+            'footer.classified': 'Classified System',
+            'footer.copyright': '© 2026 National Emergency Operations Platform. Internal Use Only.',
+          },
+          fr: {
+            'header.tagline': "PLATEFORME NATIONALE DES OPÉRATIONS D'URGENCE",
+            'auth.title': 'Accès institutionnel',
+            'auth.subtitle': "Veuillez vous authentifier pour accéder au réseau national de réponse aux incidents.",
+            'auth.error': 'Identifiants invalides. Essayez user/user ou admin/admin.',
+            'auth.idLabel': 'ID institutionnel / E-mail',
+            'auth.idPlaceholder': 'user ou admin',
+            'auth.tokenLabel': 'Jeton de sécurité',
+            'auth.tokenRequest': 'Demander un nouveau jeton',
+            'auth.tokenPlaceholder': 'mot de passe',
+            'auth.signIn': 'CONNEXION',
+            'auth.encryption': 'Chiffrement de bout en bout activé',
+            'portals.title': 'Portails autorisés',
+            'portals.command.title': 'Commandement et stratégie',
+            'portals.command.body': 'Supervision administrative provinciale et nationale.',
+            'portals.regional.title': 'Supervision régionale',
+            'portals.regional.body': "Superviseurs et personnel du centre d'opérations.",
+            'portals.logistics.title': 'Logistique et flotte',
+            'portals.logistics.body': "Chaîne d'approvisionnement et gestion des actifs mobiles.",
+            'support.title': 'Support système',
+            'support.body': "Des problèmes d'authentification ou un jeton expiré ? Contactez immédiatement l'agent technique de garde.",
+            'support.button': 'OUVRIR UN TICKET DE SUPPORT',
+            'footer.security': 'Politique de sécurité',
+            'footer.status': 'État du système',
+            'footer.contact': 'Contacter le support',
+            'footer.classified': 'Système classifié',
+            'footer.copyright': '© 2026 Plateforme Nationale des Opérations d’Urgence. Usage interne uniquement.',
+          },
+        };
+    </script>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -129,11 +190,14 @@
 <div class="flex items-center gap-4">
 <span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">NEOP</span>
 <div class="h-6 w-px bg-outline-variant hidden md:block"></div>
-<span class="font-label-md text-label-md text-on-surface-variant tracking-wider hidden md:block">NATIONAL EMERGENCY OPERATIONS PLATFORM</span>
+<span class="font-label-md text-label-md text-on-surface-variant tracking-wider hidden md:block" data-i18n="header.tagline">NATIONAL EMERGENCY OPERATIONS PLATFORM</span>
 </div>
 <div class="flex gap-4">
 <button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded">help</button>
-<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded">language</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:bg-surface-container-high transition-colors px-2 py-2 rounded" data-neop-lang-toggle="" title="Switch language / Changer de langue">
+<span class="material-symbols-outlined">language</span>
+<span class="font-label-sm text-label-sm" data-neop-lang-code="">EN</span>
+</button>
 </div>
 </header>
 <main class="flex-grow flex items-center justify-center p-gutter-sm md:p-gutter-md z-10 relative">
