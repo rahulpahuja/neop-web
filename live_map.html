@@ -18,7 +18,6 @@
             'nav.dashboard': 'Dashboard',
             'nav.liveMap': 'Live Map',
             'nav.commandPortal': 'Command Portal',
-            'nav.incidents': 'Incidents',
             'sidebar.systemStatus': 'System Status',
             'sidebar.logout': 'Log Out',
             'header.title': 'National Operations Center | Sector Alpha',
@@ -62,7 +61,6 @@
             'nav.dashboard': 'Tableau de bord',
             'nav.liveMap': 'Carte en direct',
             'nav.commandPortal': 'Portail de commandement',
-            'nav.incidents': 'Incidents',
             'sidebar.systemStatus': 'État du système',
             'sidebar.logout': 'Déconnexion',
             'header.title': 'Centre National des Opérations | Secteur Alpha',
@@ -247,10 +245,6 @@
 <span class="material-symbols-outlined">admin_panel_settings</span>
 <span data-i18n="nav.commandPortal">Command Portal</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
-<span class="material-symbols-outlined">emergency</span>
-<span data-i18n="nav.incidents">Incidents</span>
-</a>
 </nav>
 <div class="px-2 pb-4 pt-4 border-t border-outline-variant">
 <button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all mb-3" onclick="neopShowToast('Alert broadcasted to all units.', 'campaign')">
@@ -302,15 +296,15 @@
 <span class="material-symbols-outlined text-sm">emergency</span>
 <span data-i18n="layers.incidents">Incidents</span>
 </button>
-<button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors">
+<button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors" onclick="neopShowToast('This feature is under development.', 'construction')">
 <span class="material-symbols-outlined text-sm">local_shipping</span>
 <span data-i18n="layers.responders">Responders</span>
 </button>
-<button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors">
+<button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors" onclick="neopShowToast('This feature is under development.', 'construction')">
 <span class="material-symbols-outlined text-sm">festival</span>
 <span data-i18n="layers.hospitals">Hospitals</span>
 </button>
-<button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors">
+<button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors" onclick="neopShowToast('This feature is under development.', 'construction')">
 <span class="material-symbols-outlined text-sm">alt_route</span>
 <span data-i18n="layers.roadClosures">Road Closures</span>
 </button>
