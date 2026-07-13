@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEOP Fleet Control - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="auth.js"></script>
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .status-indicator {
+            width: 4px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        /* Custom scrollbar for operational density */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c4c6d2; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #747781; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f9f9fc",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary-fixed": "#001a42",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-container": "#522500",
+                        "inverse-primary": "#aec6ff",
+                        "background": "#f9f9fc",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary-container": "#ef7900",
+                        "inverse-surface": "#2f3133",
+                        "on-primary-fixed-variant": "#224583",
+                        "surface-container-high": "#e8e8ea",
+                        "secondary-fixed-dim": "#ffb3ac",
+                        "on-surface": "#1a1c1e",
+                        "surface": "#f9f9fc",
+                        "surface-container-low": "#f3f3f6",
+                        "secondary": "#b6171e",
+                        "on-background": "#1a1c1e",
+                        "primary": "#001b44",
+                        "outline-variant": "#c4c6d2",
+                        "surface-variant": "#e2e2e5",
+                        "outline": "#747781",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#aec6ff",
+                        "primary-container": "#002f6c",
+                        "secondary-fixed": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#434750",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "tertiary": "#321400",
+                        "surface-container": "#eeeef0",
+                        "on-secondary-fixed": "#410003",
+                        "surface-tint": "#3c5d9c",
+                        "secondary-container": "#da3433",
+                        "on-secondary-fixed-variant": "#930010",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-primary-container": "#7999dc",
+                        "tertiary-fixed": "#ffdcc6",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter-md": "24px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "container-max": "1440px",
+                        "gutter-sm": "16px"
+                    },
+                    "fontFamily": {
+                        "code-md": ["JetBrains Mono"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "code-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex justify-between items-center w-full px-gutter-md h-16 z-40 sticky top-0 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flat no shadows">
+<div class="flex items-center gap-8">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">NEOP Fleet Control</h1>
+<div class="hidden md:flex items-center gap-6">
+<nav class="flex gap-4">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary py-4 font-label-md text-label-md transition-colors" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest py-4 px-2 font-label-md text-label-md transition-colors" href="live_map.html">Operational Map</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest py-4 px-2 font-label-md text-label-md transition-colors" href="command_portal_dashboard.html">Command Portal</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Global Search..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">help</span></button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:block" data-neop-user></span>
+<div class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline">
+<img class="object-cover h-full w-full" data-alt="A professional headshot of a Chief Fleet Dispatcher for a national emergency agency. The man is middle-aged, wearing a crisp dark blue uniform with silver institutional insignias. He has a focused, reliable expression. The background is a slightly blurred command center with blue and amber terminal screens, emphasizing an authoritative and high-stakes operational environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpmHgoIAXXOXNtFPO4raLqApz_se1i9FoeGQNcgLSp5iviFpEYLxOLnXZgZay612luu64nFvGpnIgP3w3Dc2OxHlJ9WomkhAvhUAimaRj4Nq5TjTctucjLUiEQkAg_nWQHLi9vZJ6lMgVxNHiomwaDxwX0lZ0UpGcnCgQL8Plf8GudwVyrscEpbq4VsGRU8DlAPctudFee63xqY8448tRhMlkAErGLGoRH-zvqQkQe5XucTrZ8aP-V"/>
+</div>
+</div>
+</header>
+<div class="flex h-[calc(100vh-64px)] overflow-hidden">
+<!-- Side Navigation -->
+<aside class="flex flex-col h-full py-gutter-md px-4 bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline h-screen w-64 fixed left-0 top-16 z-30">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">National Fleet</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Emergency Operations</span>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg transition-all duration-200 ease-in-out" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="live_map.html">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md text-label-md">Live Map</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="command_portal_dashboard.html">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Command Portal</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">emergency</span>
+<span class="font-label-md text-label-md">Incidents</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md text-label-md">Resources</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-md text-label-md">Fleet</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4 space-y-4">
+<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+                    Broadcast Alert
+                </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">check_circle</span>
+<span class="font-label-md text-label-md">System Status</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all" href="login.html" onclick="neopLogout(); return false;">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Log Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 overflow-y-auto p-gutter-md">
+<!-- Key Metrics Bar -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-sm mb-8">
+<div class="bg-surface border border-outline-variant p-5 rounded-lg flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 p-3 text-surface-container-highest">
+<span class="material-symbols-outlined text-4xl">local_shipping</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Total Fleet</p>
+<h2 class="font-display-lg text-display-lg text-primary">142</h2>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-xs font-bold text-on-surface-variant">+4% from last month</span>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-5 rounded-lg flex flex-col justify-between relative overflow-hidden">
+<div class="status-indicator bg-[#4caf50]"></div>
+<div class="absolute top-0 right-0 p-3 text-surface-container-highest">
+<span class="material-symbols-outlined text-4xl">check_circle</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Active Units</p>
+<h2 class="font-display-lg text-display-lg text-primary">88</h2>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="flex h-2 w-2 rounded-full bg-[#4caf50]"></span>
+<span class="text-xs font-bold text-on-surface-variant">62% Operational</span>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-5 rounded-lg flex flex-col justify-between relative overflow-hidden">
+<div class="status-indicator bg-secondary"></div>
+<div class="absolute top-0 right-0 p-3 text-surface-container-highest">
+<span class="material-symbols-outlined text-4xl">build</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">In Maintenance</p>
+<h2 class="font-display-lg text-display-lg text-secondary">12</h2>
+</div>
+<div class="flex items-center gap-2 mt-2 text-secondary">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span class="text-xs font-bold">3 Urgent Repairs</span>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-5 rounded-lg flex flex-col justify-between relative overflow-hidden">
+<div class="status-indicator bg-[#ef7900]"></div>
+<div class="absolute top-0 right-0 p-3 text-surface-container-highest">
+<span class="material-symbols-outlined text-4xl">ev_station</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Fuel/Energy Reserve</p>
+<h2 class="font-display-lg text-display-lg text-primary">78<span class="text-2xl">%</span></h2>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-4">
+<div class="bg-[#ef7900] h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-gutter-md">
+<!-- Main Data Grid -->
+<div class="flex-[3] space-y-gutter-sm">
+<!-- Filters & Search -->
+<div class="bg-surface border border-outline-variant p-4 flex flex-wrap items-center justify-between gap-4">
+<div class="flex gap-4 items-center overflow-x-auto pb-2 md:pb-0">
+<div class="relative min-w-[280px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary text-body-md font-body-md" placeholder="Filter by ID, type, or sector..." type="text"/>
+</div>
+<select class="border border-outline-variant bg-surface-container-lowest px-4 py-2 font-label-md text-label-md focus:ring-2 focus:ring-primary">
+<option>All Types</option>
+<option>Ambulance</option>
+<option>Fire Truck</option>
+<option>Police</option>
+<option>Drone</option>
+</select>
+<select class="border border-outline-variant bg-surface-container-lowest px-4 py-2 font-label-md text-label-md focus:ring-2 focus:ring-primary">
+<option>All Statuses</option>
+<option>Available</option>
+<option>Dispatched</option>
+<option>Maintenance</option>
+</select>
+</div>
+<div class="flex gap-2">
+<button class="bg-primary text-on-primary px-4 py-2 font-label-md flex items-center gap-2 hover:opacity-90">
+<span class="material-symbols-outlined text-lg">add</span> Add Vehicle
+                            </button>
+<button class="border border-outline text-on-surface px-4 py-2 font-label-md flex items-center gap-2 hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-lg">download</span> Export
+                            </button>
+</div>
+</div>
+<!-- Table -->
+<div class="bg-surface border border-outline-variant overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Unit ID</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Type</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Status</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Location/Sector</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Fuel/Battery</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Next Maint.</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-4 py-4 font-code-md text-code-md font-bold text-primary">ALPHA-04</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">emergency</span>
+<span class="font-body-md text-body-md">Ambulance</span>
+</div>
+</td>
+<td class="px-4 py-4">
+<span class="bg-[#e8f5e9] text-[#2e7d32] text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-[#2e7d32]/20">Available</span>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">Sector 7 (Downtown)</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-[#4caf50] h-full" style="width: 92%"></div>
+</div>
+<span class="text-xs font-bold">92%</span>
+</div>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">24 Oct 2023</td>
+<td class="px-4 py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-4 py-4 font-code-md text-code-md font-bold text-primary">FIRE-09</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">fire_truck</span>
+<span class="font-body-md text-body-md">Fire Truck</span>
+</div>
+</td>
+<td class="px-4 py-4">
+<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-error/20">Maintenance</span>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">HQ Service Bay 2</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 15%"></div>
+</div>
+<span class="text-xs font-bold text-error">15%</span>
+</div>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md text-error font-bold">OVERDUE</td>
+<td class="px-4 py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-4 py-4 font-code-md text-code-md font-bold text-primary">PATROL-21</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">local_police</span>
+<span class="font-body-md text-body-md">Police Cruiser</span>
+</div>
+</td>
+<td class="px-4 py-4">
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-primary/20">Dispatched</span>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">Hwy 101 Exit 4</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full" style="width: 45%"></div>
+</div>
+<span class="text-xs font-bold">45%</span>
+</div>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">12 Nov 2023</td>
+<td class="px-4 py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-4 py-4 font-code-md text-code-md font-bold text-primary">DRONE-22</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">flight_takeoff</span>
+<span class="font-body-md text-body-md">Aerial Drone</span>
+</div>
+</td>
+<td class="px-4 py-4">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-on-tertiary-container/20">Standby</span>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">Sector 3 Depot</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 8%"></div>
+</div>
+<span class="text-xs font-bold text-error">8%</span>
+</div>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">05 Nov 2023</td>
+<td class="px-4 py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-4 py-4 font-code-md text-code-md font-bold text-primary">MED-02</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">emergency</span>
+<span class="font-body-md text-body-md">Paramedic SUV</span>
+</div>
+</td>
+<td class="px-4 py-4">
+<span class="bg-[#e8f5e9] text-[#2e7d32] text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-[#2e7d32]/20">Available</span>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">East Hospital</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-[#4caf50] h-full" style="width: 100%"></div>
+</div>
+<span class="text-xs font-bold">100%</span>
+</div>
+</td>
+<td class="px-4 py-4 font-body-md text-body-md">01 Dec 2023</td>
+<td class="px-4 py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Simulation -->
+<div class="px-4 py-3 bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Showing 1-5 of 142 units</span>
+<div class="flex gap-1">
+<button class="p-2 border border-outline-variant hover:bg-surface-container-high rounded"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="px-3 py-1 bg-primary text-on-primary font-bold rounded">1</button>
+<button class="px-3 py-1 hover:bg-surface-container-high rounded font-bold">2</button>
+<button class="px-3 py-1 hover:bg-surface-container-high rounded font-bold">3</button>
+<button class="p-2 border border-outline-variant hover:bg-surface-container-high rounded"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Maintenance Alerts Side Panel -->
+<aside class="flex-1 space-y-gutter-sm min-w-[320px]">
+<div class="bg-surface border border-outline-variant p-4">
+<div class="flex items-center justify-between mb-4 pb-2 border-b border-outline-variant">
+<h3 class="font-headline-md text-label-md font-bold uppercase tracking-wider text-primary">Maintenance Alerts</h3>
+<span class="bg-error text-on-error text-[10px] font-bold px-2 py-0.5 rounded-full">3 URGENT</span>
+</div>
+<div class="space-y-3">
+<!-- Alert 1 -->
+<div class="p-3 bg-error-container border-l-4 border-error rounded-r flex gap-3 group relative">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">error</span>
+<div>
+<p class="font-bold text-sm text-on-error-container">FIRE-09: Engine Fault</p>
+<p class="text-xs text-on-error-container/80 mt-1">O2 sensor failure detected. Vehicle must remain grounded until parts arrive from depot.</p>
+<div class="flex gap-2 mt-3">
+<button class="text-[10px] font-bold bg-error text-on-error px-2 py-1 rounded">DE-COMMISSION</button>
+<button class="text-[10px] font-bold border border-error text-error px-2 py-1 rounded">LOG DETAILS</button>
+</div>
+</div>
+</div>
+<!-- Alert 2 -->
+<div class="p-3 bg-on-secondary-container border-l-4 border-on-secondary-fixed-variant rounded-r flex gap-3">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">battery_alert</span>
+<div>
+<p class="font-bold text-sm text-on-secondary-fixed-variant">DRONE-22: Low Battery</p>
+<p class="text-xs text-on-secondary-fixed-variant/80 mt-1">Battery health degraded below 15% threshold. Internal resistance error reported.</p>
+<button class="text-[10px] font-bold mt-2 underline">REPLACE PACK</button>
+</div>
+</div>
+<!-- Alert 3 -->
+<div class="p-3 bg-surface-container-high border-l-4 border-outline rounded-r flex gap-3">
+<span class="material-symbols-outlined text-outline">build</span>
+<div>
+<p class="font-bold text-sm text-on-surface">ALPHA-12: Scheduled Care</p>
+<p class="text-xs text-on-surface-variant mt-1">Brake pad inspection due in 48 hours. Estimated downtime: 2 hours.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 border border-primary text-primary font-bold py-2 font-label-md flex items-center justify-center gap-2 hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined">event</span> Schedule Maintenance
+                        </button>
+</div>
+<!-- Fleet Map Snippet -->
+<div class="bg-surface border border-outline-variant p-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-md text-label-md font-bold uppercase tracking-wider text-primary">Sector Distribution</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">fullscreen</span>
+</div>
+<div class="h-48 w-full bg-surface-container-highest flex items-center justify-center relative overflow-hidden rounded">
+<div class="w-full h-full" id="neop-sector-map"></div>
+<div class="absolute bottom-3 left-3 z-[400] bg-surface/90 backdrop-blur-sm border border-outline-variant p-2 rounded pointer-events-none">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Most Active: Sector 7</p>
+<p class="text-xs font-bold text-primary">24 Units En Route</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+<!-- Micro-interaction for row clicks (Visual feedback only) -->
+<script>
+        neopRequireAuth();
+
+        // Sector map (OpenStreetMap) - zoom level 13 kept in sync with the
+        // 6-sector grid on live_map.html and the Regional Incident Heatmap on
+        // command_portal_dashboard.html, so every screen reads the same scale.
+        const NEOP_MAP_ZOOM = 13;
+        window.addEventListener('load', () => {
+            const sectorMap = L.map('neop-sector-map', { zoomControl: false, attributionControl: false })
+                .setView([-1.6792, 29.2228], NEOP_MAP_ZOOM);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap contributors',
+            }).addTo(sectorMap);
+            L.circleMarker([-1.6792, 29.2228], { radius: 8, color: '#b6171e', fillColor: '#b6171e', fillOpacity: 0.7 })
+                .bindTooltip('Sector 7 - 24 Units En Route').addTo(sectorMap);
+            setTimeout(() => sectorMap.invalidateSize(), 200);
+        });
+
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('click', () => {
+                row.classList.add('bg-primary-fixed');
+                setTimeout(() => {
+                    row.classList.remove('bg-primary-fixed');
+                }, 300);
+            });
+        });
+
+        // Toggle search bar focus effect
+        const searchInput = document.querySelector('input[placeholder="Global Search..."]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary');
+        });
+    </script>
+</body></html>
