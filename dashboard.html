@@ -294,47 +294,45 @@
 </header>
 <div class="flex h-[calc(100vh-64px)] overflow-hidden">
 <!-- Side Navigation -->
-<aside class="flex flex-col h-full py-gutter-md px-4 bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline h-screen w-64 fixed left-0 top-16 z-30">
-<div class="mb-8 px-2">
+<aside class="flex flex-col h-screen w-64 fixed left-0 top-16 bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline z-40">
+<div class="px-4 py-6 mb-2">
 <div class="flex items-center gap-3 mb-1">
-<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
-<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">National Fleet</span>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">NEOP</span>
 </div>
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest" data-i18n="sidebar.tagline">Emergency Operations</span>
 </div>
-<nav class="flex-1 space-y-1">
-<a class="flex items-center gap-3 px-3 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg transition-all duration-200 ease-in-out" href="dashboard.html">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="font-label-md text-label-md" data-i18n="sidebar.dashboard">Dashboard</span>
+<nav class="flex-1 px-2 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md bg-primary-container text-on-primary-container font-bold transition-all duration-200 ease-in-out" href="dashboard.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span data-i18n="sidebar.dashboard">Dashboard</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="live_map.html">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="live_map.html">
 <span class="material-symbols-outlined">map</span>
-<span class="font-label-md text-label-md" data-i18n="sidebar.liveMap">Live Map</span>
+<span data-i18n="sidebar.liveMap">Live Map</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="command_portal_dashboard.html">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="command_portal_dashboard.html">
 <span class="material-symbols-outlined">admin_panel_settings</span>
-<span class="font-label-md text-label-md" data-i18n="sidebar.commandPortal">Command Portal</span>
+<span data-i18n="sidebar.commandPortal">Command Portal</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
 <span class="material-symbols-outlined">emergency</span>
-<span class="font-label-md text-label-md" data-i18n="sidebar.incidents">Incidents</span>
+<span data-i18n="sidebar.incidents">Incidents</span>
 </a>
 </nav>
-<div class="mt-auto border-t border-outline-variant pt-4 space-y-4">
-<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<div class="px-2 pb-4 pt-4 border-t border-outline-variant">
+<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all mb-3" onclick="neopShowToast('Alert broadcasted to all units.', 'campaign')">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
 <span data-i18n="sidebar.broadcastAlert">Broadcast Alert</span>
-                </button>
-<div class="space-y-1">
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+</button>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
 <span class="material-symbols-outlined">check_circle</span>
-<span class="font-label-md text-label-md" data-i18n="sidebar.systemStatus">System Status</span>
+<span data-i18n="sidebar.systemStatus">System Status</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all" href="login.html" onclick="neopLogout(); return false;">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="login.html" onclick="neopLogout(); return false;">
 <span class="material-symbols-outlined">logout</span>
-<span class="font-label-md text-label-md" data-i18n="sidebar.logOut">Log Out</span>
+<span data-i18n="sidebar.logOut">Log Out</span>
 </a>
-</div>
 </div>
 </aside>
 <!-- Main Content Area -->

@@ -15,12 +15,13 @@
 <script>
         window.NEOP_TRANSLATIONS = {
           en: {
-            'sidebar.title': 'Provincial Command',
-            'sidebar.subtitle': 'NEOP Level 2',
+            'sidebar.subtitle': 'Provincial Command · Level 2',
+            'nav.commandPortal': 'Command Portal',
             'nav.dashboard': 'Dashboard',
-            'nav.regionalMap': 'Regional Map',
-            'nav.fleetControl': 'Fleet Control',
+            'nav.liveMap': 'Live Map',
+            'nav.incidents': 'Incidents',
             'sidebar.escalateIncident': 'Escalate Incident',
+            'sidebar.systemStatus': 'System Status',
             'sidebar.settings': 'Settings',
             'sidebar.support': 'Support',
             'sidebar.logout': 'Log Out',
@@ -65,12 +66,13 @@
             'trend.emergencyUnits': 'Emergency Units',
           },
           fr: {
-            'sidebar.title': 'Commandement Provincial',
-            'sidebar.subtitle': 'NEOP Niveau 2',
-            'nav.dashboard': 'Tableau de Bord',
-            'nav.regionalMap': 'Carte Régionale',
-            'nav.fleetControl': 'Contrôle de la Flotte',
+            'sidebar.subtitle': 'Commandement Provincial · Niveau 2',
+            'nav.commandPortal': 'Portail de commandement',
+            'nav.dashboard': 'Tableau de bord',
+            'nav.liveMap': 'Carte en direct',
+            'nav.incidents': 'Incidents',
             'sidebar.escalateIncident': "Escalader l'Incident",
+            'sidebar.systemStatus': 'État du système',
             'sidebar.settings': 'Paramètres',
             'sidebar.support': 'Assistance',
             'sidebar.logout': 'Déconnexion',
@@ -233,43 +235,52 @@
 </head>
 <body class="flex min-h-screen">
 <!-- SideNavBar (Authority: Provincial Command) -->
-<aside class="hidden md:flex flex-col h-screen w-64 left-0 sticky bg-surface-container dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline z-[60]">
-<div class="px-6 py-8">
-<h1 class="font-headline-md text-headline-md font-bold text-primary" data-i18n="sidebar.title">Provincial Command</h1>
-<p class="text-on-surface-variant font-label-md mt-1" data-i18n="sidebar.subtitle">NEOP Level 2</p>
+<aside class="hidden md:flex flex-col h-screen w-64 left-0 sticky top-0 bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline z-40">
+<div class="px-4 py-6 mb-2">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">NEOP</span>
 </div>
-<div class="flex flex-col gap-1 flex-1 overflow-y-auto">
-<!-- Active: Dashboard -->
-<a class="bg-primary-container dark:bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 px-4 py-3 cursor-pointer active:scale-95 duration-150 flex items-center gap-3" href="command_portal_dashboard.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
-<span class="font-label-md" data-i18n="nav.dashboard">Dashboard</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest" data-i18n="sidebar.subtitle">Provincial Command · Level 2</span>
+</div>
+<nav class="flex-1 px-2 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md bg-primary-container text-on-primary-container font-bold transition-all duration-200 ease-in-out" href="command_portal_dashboard.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<span data-i18n="nav.commandPortal">Command Portal</span>
 </a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high hover:text-on-surface px-4 py-3 mx-2 rounded-lg cursor-pointer transition-all flex items-center gap-3" href="live_map.html">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span data-i18n="nav.dashboard">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="live_map.html">
 <span class="material-symbols-outlined">map</span>
-<span class="font-label-md" data-i18n="nav.regionalMap">Regional Map</span>
+<span data-i18n="nav.liveMap">Live Map</span>
 </a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high hover:text-on-surface px-4 py-3 mx-2 rounded-lg cursor-pointer transition-all flex items-center gap-3" href="dashboard.html">
-<span class="material-symbols-outlined">local_shipping</span>
-<span class="font-label-md" data-i18n="nav.fleetControl">Fleet Control</span>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">emergency</span>
+<span data-i18n="nav.incidents">Incidents</span>
 </a>
-</div>
-<div class="px-4 py-6 border-t border-outline-variant">
-<button class="w-full bg-secondary text-on-secondary font-label-md py-3 rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-transform" onclick="neopShowToast('Incident escalated.', 'emergency_share')">
-<span class="material-symbols-outlined">emergency_share</span>
-                <span data-i18n="sidebar.escalateIncident">Escalate Incident</span>
-            </button>
-<div class="mt-6 flex flex-col gap-2">
-<div class="text-on-surface-variant hover:text-on-surface px-2 py-2 flex items-center gap-3 cursor-pointer transition-colors">
+</nav>
+<div class="px-2 pb-4 pt-4 border-t border-outline-variant">
+<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all mb-3" onclick="neopShowToast('Incident escalated.', 'emergency_share')">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emergency_share</span>
+<span data-i18n="sidebar.escalateIncident">Escalate Incident</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">check_circle</span>
+<span data-i18n="sidebar.systemStatus">System Status</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
 <span class="material-symbols-outlined">settings</span>
-<span class="font-label-md" data-i18n="sidebar.settings">Settings</span>
-</div>
-<div class="text-on-surface-variant hover:text-on-surface px-2 py-2 flex items-center gap-3 cursor-pointer transition-colors">
+<span data-i18n="sidebar.settings">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
 <span class="material-symbols-outlined">help</span>
-<span class="font-label-md" data-i18n="sidebar.support">Support</span>
-</div>
-<a class="text-on-surface-variant hover:text-on-surface px-2 py-2 flex items-center gap-3 cursor-pointer transition-colors" href="login.html" onclick="neopLogout(); return false;">
+<span data-i18n="sidebar.support">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="login.html" onclick="neopLogout(); return false;">
 <span class="material-symbols-outlined">logout</span>
-<span class="font-label-md" data-i18n="sidebar.logout">Log Out</span>
+<span data-i18n="sidebar.logout">Log Out</span>
 </a>
 </div>
 <div class="mt-6 flex items-center gap-3 px-2">
@@ -279,7 +290,6 @@
 <div class="flex flex-col">
 <span class="font-label-md text-on-surface" data-neop-user>Commander</span>
 <span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold" data-i18n="sidebar.levelClear">Level 2 Clear</span>
-</div>
 </div>
 </div>
 </aside>

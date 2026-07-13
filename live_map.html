@@ -14,6 +14,7 @@
         window.NEOP_TRANSLATIONS = {
           en: {
             'sidebar.tagline': 'National Emergency Ops',
+            'sidebar.broadcastAlert': 'Broadcast Alert',
             'nav.dashboard': 'Dashboard',
             'nav.liveMap': 'Live Map',
             'nav.commandPortal': 'Command Portal',
@@ -57,6 +58,7 @@
           },
           fr: {
             'sidebar.tagline': "Opérations d'urgence nationales",
+            'sidebar.broadcastAlert': 'Diffuser une alerte',
             'nav.dashboard': 'Tableau de bord',
             'nav.liveMap': 'Carte en direct',
             'nav.commandPortal': 'Portail de commandement',
@@ -224,37 +226,44 @@
 </head>
 <body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex">
 <!-- SideNavBar (Left) -->
-<aside class="flex flex-col h-full sticky left-0 top-0 py-gutter-md bg-surface-container border-r border-outline-variant h-screen w-64 flex-shrink-0 z-[60]">
-<div class="px-6 mb-8">
-<h1 class="font-headline-md text-headline-md font-black text-primary">NEOP</h1>
-<p class="text-xs uppercase tracking-widest text-on-surface-variant font-bold" data-i18n="sidebar.tagline">National Emergency Ops</p>
+<aside class="flex flex-col h-screen w-64 sticky left-0 top-0 flex-shrink-0 bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline z-40">
+<div class="px-4 py-6 mb-2">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">NEOP</span>
 </div>
-<nav class="flex-1 space-y-1">
-<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="dashboard.html">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest" data-i18n="sidebar.tagline">National Emergency Ops</span>
+</div>
+<nav class="flex-1 px-2 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="dashboard.html">
 <span class="material-symbols-outlined">dashboard</span>
-<span class="font-label-md text-label-md" data-i18n="nav.dashboard">Dashboard</span>
+<span data-i18n="nav.dashboard">Dashboard</span>
 </a>
-<a class="flex items-center gap-3 text-primary font-bold border-l-4 border-primary bg-surface-container-high px-4 py-3 transition-all active:scale-95" href="live_map.html">
-<span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">map</span>
-<span class="font-label-md text-label-md" data-i18n="nav.liveMap">Live Map</span>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md bg-primary-container text-on-primary-container font-bold transition-all duration-200 ease-in-out" href="live_map.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+<span data-i18n="nav.liveMap">Live Map</span>
 </a>
-<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="command_portal_dashboard.html">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="command_portal_dashboard.html">
 <span class="material-symbols-outlined">admin_panel_settings</span>
-<span class="font-label-md text-label-md" data-i18n="nav.commandPortal">Command Portal</span>
+<span data-i18n="nav.commandPortal">Command Portal</span>
 </a>
-<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="#">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
 <span class="material-symbols-outlined">emergency</span>
-<span class="font-label-md text-label-md" data-i18n="nav.incidents">Incidents</span>
+<span data-i18n="nav.incidents">Incidents</span>
 </a>
 </nav>
-<div class="mt-auto px-4">
-<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3">
-<span class="material-symbols-outlined text-green-600">check_circle</span>
-<span class="font-label-md text-label-md" data-i18n="sidebar.systemStatus">System Status</span>
-</div>
-<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-all cursor-pointer" href="login.html" onclick="neopLogout(); return false;">
+<div class="px-2 pb-4 pt-4 border-t border-outline-variant">
+<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all mb-3" onclick="neopShowToast('Alert broadcasted to all units.', 'campaign')">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span data-i18n="sidebar.broadcastAlert">Broadcast Alert</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">check_circle</span>
+<span data-i18n="sidebar.systemStatus">System Status</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="login.html" onclick="neopLogout(); return false;">
 <span class="material-symbols-outlined">logout</span>
-<span class="font-label-md text-label-md" data-i18n="sidebar.logout">Log Out</span>
+<span data-i18n="sidebar.logout">Log Out</span>
 </a>
 </div>
 </aside>
