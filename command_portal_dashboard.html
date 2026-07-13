@@ -510,7 +510,7 @@
 </div>
 </div>
 </div>
-<!-- Chart Area (rendered from dummy dataset via script) -->
+<!-- Chart Area (static dummy dataset, no script dependency) -->
 <div class="w-full h-48 relative flex items-end justify-between gap-2 px-2" id="resource-trend-chart">
 <!-- Grid Lines -->
 <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
@@ -519,45 +519,57 @@
 <div class="border-b border-outline-variant/30 w-full"></div>
 <div class="border-b border-outline-variant w-full"></div>
 </div>
+<div class="flex-1 flex items-end gap-1 group relative z-10">
+<div class="w-full bg-primary rounded-t-sm hover:brightness-125 transition-all" style="height:40%" title="Personnel: 40%"></div>
+<div class="w-full bg-on-primary-container rounded-t-sm hover:brightness-125 transition-all" style="height:60%" title="Logistics: 60%"></div>
+<div class="w-full bg-secondary rounded-t-sm hover:brightness-125 transition-all" style="height:20%" title="Emergency Units: 20%"></div>
 </div>
-<div class="flex justify-between mt-4 px-2 text-[10px] font-bold text-on-surface-variant uppercase" id="resource-trend-labels"></div>
+<div class="flex-1 flex items-end gap-1 group relative z-10">
+<div class="w-full bg-primary rounded-t-sm hover:brightness-125 transition-all" style="height:45%" title="Personnel: 45%"></div>
+<div class="w-full bg-on-primary-container rounded-t-sm hover:brightness-125 transition-all" style="height:55%" title="Logistics: 55%"></div>
+<div class="w-full bg-secondary rounded-t-sm hover:brightness-125 transition-all" style="height:30%" title="Emergency Units: 30%"></div>
+</div>
+<div class="flex-1 flex items-end gap-1 group relative z-10">
+<div class="w-full bg-primary rounded-t-sm hover:brightness-125 transition-all" style="height:50%" title="Personnel: 50%"></div>
+<div class="w-full bg-on-primary-container rounded-t-sm hover:brightness-125 transition-all" style="height:40%" title="Logistics: 40%"></div>
+<div class="w-full bg-secondary rounded-t-sm hover:brightness-125 transition-all" style="height:45%" title="Emergency Units: 45%"></div>
+</div>
+<div class="flex-1 flex items-end gap-1 group relative z-10">
+<div class="w-full bg-primary rounded-t-sm hover:brightness-125 transition-all" style="height:70%" title="Personnel: 70%"></div>
+<div class="w-full bg-on-primary-container rounded-t-sm hover:brightness-125 transition-all" style="height:30%" title="Logistics: 30%"></div>
+<div class="w-full bg-secondary rounded-t-sm hover:brightness-125 transition-all" style="height:80%" title="Emergency Units: 80%"></div>
+</div>
+<div class="flex-1 flex items-end gap-1 group relative z-10">
+<div class="w-full bg-primary rounded-t-sm hover:brightness-125 transition-all" style="height:85%" title="Personnel: 85%"></div>
+<div class="w-full bg-on-primary-container rounded-t-sm hover:brightness-125 transition-all" style="height:25%" title="Logistics: 25%"></div>
+<div class="w-full bg-secondary rounded-t-sm hover:brightness-125 transition-all" style="height:95%" title="Emergency Units: 95%"></div>
+</div>
+<div class="flex-1 flex items-end gap-1 group relative z-10">
+<div class="w-full bg-primary rounded-t-sm hover:brightness-125 transition-all" style="height:60%" title="Personnel: 60%"></div>
+<div class="w-full bg-on-primary-container rounded-t-sm hover:brightness-125 transition-all" style="height:40%" title="Logistics: 40%"></div>
+<div class="w-full bg-secondary rounded-t-sm hover:brightness-125 transition-all" style="height:50%" title="Emergency Units: 50%"></div>
+</div>
+<div class="flex-1 flex items-end gap-1 group relative z-10">
+<div class="w-full bg-primary rounded-t-sm hover:brightness-125 transition-all" style="height:40%" title="Personnel: 40%"></div>
+<div class="w-full bg-on-primary-container rounded-t-sm hover:brightness-125 transition-all" style="height:60%" title="Logistics: 60%"></div>
+<div class="w-full bg-secondary rounded-t-sm hover:brightness-125 transition-all" style="height:30%" title="Emergency Units: 30%"></div>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-2 text-[10px] font-bold text-on-surface-variant uppercase" id="resource-trend-labels">
+<span>24h Ago</span>
+<span>20h Ago</span>
+<span>16h Ago</span>
+<span>12h Ago</span>
+<span>08h Ago</span>
+<span>04h Ago</span>
+<span>Current</span>
+</div>
 </section>
 </div>
 </main>
 <!-- Interactive script for clock and subtle effects -->
 <script>
         neopRequireAuth();
-
-        // Dummy dataset for the Resource Allocation Trend chart
-        const RESOURCE_TREND_DATA = [
-            { label: '24h Ago', personnel: 40, logistics: 60, emergency: 20 },
-            { label: '20h Ago', personnel: 45, logistics: 55, emergency: 30 },
-            { label: '16h Ago', personnel: 50, logistics: 40, emergency: 45 },
-            { label: '12h Ago', personnel: 70, logistics: 30, emergency: 80 },
-            { label: '08h Ago', personnel: 85, logistics: 25, emergency: 95 },
-            { label: '04h Ago', personnel: 60, logistics: 40, emergency: 50 },
-            { label: 'Current', personnel: 40, logistics: 60, emergency: 30 },
-        ];
-
-        function renderResourceTrendChart() {
-            const chart = document.getElementById('resource-trend-chart');
-            const labels = document.getElementById('resource-trend-labels');
-            RESOURCE_TREND_DATA.forEach(point => {
-                const group = document.createElement('div');
-                group.className = 'flex-1 flex items-end gap-1 group relative z-10';
-                group.innerHTML = `
-                    <div class="w-full bg-primary rounded-t-sm hover:brightness-125 transition-all" style="height:${point.personnel}%" title="Personnel: ${point.personnel}%"></div>
-                    <div class="w-full bg-on-primary-container rounded-t-sm hover:brightness-125 transition-all" style="height:${point.logistics}%" title="Logistics: ${point.logistics}%"></div>
-                    <div class="w-full bg-secondary rounded-t-sm hover:brightness-125 transition-all" style="height:${point.emergency}%" title="Emergency Units: ${point.emergency}%"></div>
-                `;
-                chart.appendChild(group);
-
-                const labelEl = document.createElement('span');
-                labelEl.textContent = point.label;
-                labels.appendChild(labelEl);
-            });
-        }
-        renderResourceTrendChart();
 
         // Regional map (OpenStreetMap) - zoom level 13 kept in sync with the
         // 6-sector grid on live_map.html so all screens read the same scale.
