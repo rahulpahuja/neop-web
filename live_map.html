@@ -9,6 +9,103 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="auth.js"></script>
+<script src="i18n.js"></script>
+<script>
+        window.NEOP_TRANSLATIONS = {
+          en: {
+            'sidebar.tagline': 'National Emergency Ops',
+            'nav.dashboard': 'Dashboard',
+            'nav.liveMap': 'Live Map',
+            'nav.commandPortal': 'Command Portal',
+            'nav.incidents': 'Incidents',
+            'nav.resources': 'Resources',
+            'nav.fleet': 'Fleet',
+            'nav.reports': 'Reports',
+            'sidebar.systemStatus': 'System Status',
+            'sidebar.logout': 'Log Out',
+            'header.title': 'National Operations Center | Sector Alpha',
+            'search.placeholder': 'Coordinates, Unit, or Landmark...',
+            'layers.incidents': 'Incidents',
+            'layers.responders': 'Responders',
+            'layers.hospitals': 'Hospitals',
+            'layers.roadClosures': 'Road Closures',
+            'layers.sectorFeeds': '6 Sector Feeds · OpenStreetMap',
+            'map.sector1': 'Sector 1 · Goma Central',
+            'map.sector2': 'Sector 2 · Beni',
+            'map.sector3': 'Sector 3 · Butembo',
+            'map.sector4': 'Sector 4 · Rutshuru',
+            'map.sector5': 'Sector 5 · Sake',
+            'map.sector6': 'Sector 6 · Kiwanja',
+            'ticker.heading': 'Live AI Intelligence',
+            'ticker.msg1': 'AI Detection: High thermal signature detected at Sector 4 Warehouse. Potential fire confirmed.',
+            'ticker.msg2': 'Crowd Analytics: 200+ individuals gathering at Avenue Karisimbi. Mood index: Volatile.',
+            'ticker.msg3': 'Resource Update: MED_UNIT_B2 status changed to EN ROUTE.',
+            'ticker.activeFeeds': 'ACTIVE FEEDS: 14',
+            'triage.title': 'Incident Triage',
+            'triage.criticalBadge': '4 CRITICAL',
+            'triage.card1.severity': 'Level 5: Critical',
+            'triage.card1.title': 'Goma Central Hospital - Structural Fire',
+            'triage.card1.desc': 'Reported 4 mins ago via automated alarm. Smoke detected on floor 3. Evacuation initiated.',
+            'triage.escalate': 'Escalate',
+            'triage.deployUnit': 'Deploy Unit',
+            'triage.card2.severity': 'Level 4: High',
+            'triage.card2.title': 'Mass Casualty Transit Incident',
+            'triage.card2.desc': 'Vehicle collision on North Road. Multiple injuries reported by field citizen. No units assigned.',
+            'triage.assignResponder': 'Assign Responder',
+            'triage.card3.severity': 'Level 2: Routine',
+            'triage.card3.title': 'Civil Disturbance - Sector 7',
+            'triage.card3.desc': 'Protest group size increasing at Market Square. Observation unit requested.',
+            'triage.viewLogistics': 'View Logistics Details →',
+            'triage.archiveResolved': 'Archive Resolved',
+          },
+          fr: {
+            'sidebar.tagline': "Opérations d'urgence nationales",
+            'nav.dashboard': 'Tableau de bord',
+            'nav.liveMap': 'Carte en direct',
+            'nav.commandPortal': 'Portail de commandement',
+            'nav.incidents': 'Incidents',
+            'nav.resources': 'Ressources',
+            'nav.fleet': 'Flotte',
+            'nav.reports': 'Rapports',
+            'sidebar.systemStatus': 'État du système',
+            'sidebar.logout': 'Déconnexion',
+            'header.title': 'Centre National des Opérations | Secteur Alpha',
+            'search.placeholder': 'Coordonnées, unité ou point de repère...',
+            'layers.incidents': 'Incidents',
+            'layers.responders': 'Intervenants',
+            'layers.hospitals': 'Hôpitaux',
+            'layers.roadClosures': 'Routes fermées',
+            'layers.sectorFeeds': '6 flux sectoriels · OpenStreetMap',
+            'map.sector1': 'Secteur 1 · Goma Central',
+            'map.sector2': 'Secteur 2 · Beni',
+            'map.sector3': 'Secteur 3 · Butembo',
+            'map.sector4': 'Secteur 4 · Rutshuru',
+            'map.sector5': 'Secteur 5 · Sake',
+            'map.sector6': 'Secteur 6 · Kiwanja',
+            'ticker.heading': 'Intelligence IA en direct',
+            'ticker.msg1': "Détection IA : signature thermique élevée détectée à l'entrepôt du secteur 4. Incendie potentiel confirmé.",
+            'ticker.msg2': "Analyse de foule : plus de 200 personnes rassemblées Avenue Karisimbi. Indice d'ambiance : volatile.",
+            'ticker.msg3': 'Mise à jour des ressources : le statut de MED_UNIT_B2 est passé à EN ROUTE.',
+            'ticker.activeFeeds': 'FLUX ACTIFS : 14',
+            'triage.title': 'Triage des incidents',
+            'triage.criticalBadge': '4 CRITIQUES',
+            'triage.card1.severity': 'Niveau 5 : Critique',
+            'triage.card1.title': 'Hôpital Central de Goma - Incendie structurel',
+            'triage.card1.desc': "Signalé il y a 4 minutes par alarme automatique. Fumée détectée à l'étage 3. Évacuation en cours.",
+            'triage.escalate': 'Escalader',
+            'triage.deployUnit': 'Déployer une unité',
+            'triage.card2.severity': 'Niveau 4 : Élevé',
+            'triage.card2.title': 'Incident de transport à victimes multiples',
+            'triage.card2.desc': 'Collision de véhicules sur North Road. Plusieurs blessés signalés par un citoyen sur le terrain. Aucune unité assignée.',
+            'triage.assignResponder': 'Assigner un intervenant',
+            'triage.card3.severity': 'Niveau 2 : Routine',
+            'triage.card3.title': 'Trouble civil - Secteur 7',
+            'triage.card3.desc': "La taille du groupe de manifestants augmente à Market Square. Unité d'observation demandée.",
+            'triage.viewLogistics': 'Voir les détails logistiques →',
+            'triage.archiveResolved': 'Archiver les résolus',
+          },
+        };
+    </script>
 <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -136,46 +233,46 @@
 <aside class="flex flex-col h-full sticky left-0 top-0 py-gutter-md bg-surface-container border-r border-outline-variant h-screen w-64 flex-shrink-0 z-[60]">
 <div class="px-6 mb-8">
 <h1 class="font-headline-md text-headline-md font-black text-primary">NEOP</h1>
-<p class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">National Emergency Ops</p>
+<p class="text-xs uppercase tracking-widest text-on-surface-variant font-bold" data-i18n="sidebar.tagline">National Emergency Ops</p>
 </div>
 <nav class="flex-1 space-y-1">
 <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="dashboard.html">
 <span class="material-symbols-outlined">dashboard</span>
-<span class="font-label-md text-label-md">Dashboard</span>
+<span class="font-label-md text-label-md" data-i18n="nav.dashboard">Dashboard</span>
 </a>
 <a class="flex items-center gap-3 text-primary font-bold border-l-4 border-primary bg-surface-container-high px-4 py-3 transition-all active:scale-95" href="live_map.html">
 <span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">map</span>
-<span class="font-label-md text-label-md">Live Map</span>
+<span class="font-label-md text-label-md" data-i18n="nav.liveMap">Live Map</span>
 </a>
 <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="command_portal_dashboard.html">
 <span class="material-symbols-outlined">admin_panel_settings</span>
-<span class="font-label-md text-label-md">Command Portal</span>
+<span class="font-label-md text-label-md" data-i18n="nav.commandPortal">Command Portal</span>
 </a>
 <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="#">
 <span class="material-symbols-outlined">emergency</span>
-<span class="font-label-md text-label-md">Incidents</span>
+<span class="font-label-md text-label-md" data-i18n="nav.incidents">Incidents</span>
 </a>
 <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="#">
 <span class="material-symbols-outlined">inventory_2</span>
-<span class="font-label-md text-label-md">Resources</span>
+<span class="font-label-md text-label-md" data-i18n="nav.resources">Resources</span>
 </a>
 <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="#">
 <span class="material-symbols-outlined">local_shipping</span>
-<span class="font-label-md text-label-md">Fleet</span>
+<span class="font-label-md text-label-md" data-i18n="nav.fleet">Fleet</span>
 </a>
 <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest transition-all active:scale-95" href="#">
 <span class="material-symbols-outlined">assessment</span>
-<span class="font-label-md text-label-md">Reports</span>
+<span class="font-label-md text-label-md" data-i18n="nav.reports">Reports</span>
 </a>
 </nav>
 <div class="mt-auto px-4">
 <div class="flex items-center gap-3 text-on-surface-variant px-4 py-3">
 <span class="material-symbols-outlined text-green-600">check_circle</span>
-<span class="font-label-md text-label-md">System Status</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.systemStatus">System Status</span>
 </div>
 <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-all cursor-pointer" href="login.html" onclick="neopLogout(); return false;">
 <span class="material-symbols-outlined">logout</span>
-<span class="font-label-md text-label-md">Log Out</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.logout">Log Out</span>
 </a>
 </div>
 </aside>
@@ -184,17 +281,21 @@
 <!-- TopAppBar -->
 <header class="flex justify-between items-center px-gutter-md w-full sticky top-0 z-50 bg-surface h-16 border-b border-outline-variant">
 <div class="flex items-center gap-4">
-<span class="font-headline-md text-headline-md font-bold text-primary">National Operations Center | Sector Alpha</span>
+<span class="font-headline-md text-headline-md font-bold text-primary" data-i18n="header.title">National Operations Center | Sector Alpha</span>
 </div>
 <div class="flex items-center gap-6">
 <div class="relative hidden lg:block">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="bg-surface-container-low border-outline-variant border rounded-lg pl-10 pr-4 py-2 text-sm w-80 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Coordinates, Unit, or Landmark..." type="text"/>
+<input class="bg-surface-container-low border-outline-variant border rounded-lg pl-10 pr-4 py-2 text-sm w-80 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" data-i18n-placeholder="search.placeholder" placeholder="Coordinates, Unit, or Landmark..." type="text"/>
 </div>
 <div class="flex items-center gap-4">
 <button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">notifications</button>
 <button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">settings</button>
 <button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">help</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors" data-neop-lang-toggle title="Switch language / Changer de langue">
+<span class="material-symbols-outlined">language</span>
+<span class="font-label-sm text-label-sm" data-neop-lang-code>EN</span>
+</button>
 <span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:block" data-neop-user></span>
 <div class="h-10 w-10 bg-primary-container rounded-full flex items-center justify-center overflow-hidden border border-outline-variant">
 <img class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged male emergency supervisor with a stern, authoritative expression. He is wearing a dark navy tactical response vest with the NEOP insignia clearly visible. The lighting is cinematic with cold blue tones and high contrast, suggesting a high-stakes command center environment with blurred monitors in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcCPDhkpZhF1nmy2sbLVxF3PS8umVz84gv2CL68WptaP9rPrPyf7UX87ZY7fuTdvS7xMKcW6Q8TyjA1WxzVLxJ809RQzzhGDZ_KG6n0k2YSYvxthZmuEK2XULfDghhCHT6wxZ3YUB0OOmOkFrgYzQ9Z71Lvwo3uXZvCkmtc8CoWEFgJUC7ItxKy-xZy8qLC6MjrjmzCpSAm6yIoAqJXMA7n3JNvoiDunYL_ugxJtrAIWLWAc3wqesA"/>
@@ -208,47 +309,47 @@
 <div class="flex items-center gap-2 p-3 mr-80 border-b border-outline-variant bg-surface z-10 overflow-x-auto">
 <button class="flex items-center gap-2 px-3 py-2 bg-primary text-white rounded-md text-sm font-semibold shadow-inner">
 <span class="material-symbols-outlined text-sm">emergency</span>
-<span>Incidents</span>
+<span data-i18n="layers.incidents">Incidents</span>
 </button>
 <button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors">
 <span class="material-symbols-outlined text-sm">local_shipping</span>
-<span>Responders</span>
+<span data-i18n="layers.responders">Responders</span>
 </button>
 <button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors">
 <span class="material-symbols-outlined text-sm">festival</span>
-<span>Hospitals</span>
+<span data-i18n="layers.hospitals">Hospitals</span>
 </button>
 <button class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface-variant rounded-md text-sm font-semibold hover:bg-surface-variant transition-colors">
 <span class="material-symbols-outlined text-sm">alt_route</span>
-<span>Road Closures</span>
+<span data-i18n="layers.roadClosures">Road Closures</span>
 </button>
-<span class="ml-auto text-[11px] font-bold text-on-surface-variant uppercase tracking-wider whitespace-nowrap">6 Sector Feeds &middot; OpenStreetMap</span>
+<span class="ml-auto text-[11px] font-bold text-on-surface-variant uppercase tracking-wider whitespace-nowrap" data-i18n="layers.sectorFeeds">6 Sector Feeds &middot; OpenStreetMap</span>
 </div>
 <!-- 6-Sector Map Grid (OpenStreetMap via Leaflet) -->
 <div class="flex-1 min-h-0 grid grid-cols-3 grid-rows-2 gap-2 p-2 mr-80" id="neop-map-grid">
 <div class="relative rounded-lg overflow-hidden border border-outline-variant">
 <div class="w-full h-full" id="neop-map-1" style="min-height:180px;"></div>
-<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-secondary flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary critical-pulse"></span>Sector 1 &middot; Goma Central</div>
+<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-secondary flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary critical-pulse"></span><span data-i18n="map.sector1">Sector 1 &middot; Goma Central</span></div>
 </div>
 <div class="relative rounded-lg overflow-hidden border border-outline-variant">
 <div class="w-full h-full" id="neop-map-2" style="min-height:180px;"></div>
-<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface">Sector 2 &middot; Beni</div>
+<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface"><span data-i18n="map.sector2">Sector 2 &middot; Beni</span></div>
 </div>
 <div class="relative rounded-lg overflow-hidden border border-outline-variant">
 <div class="w-full h-full" id="neop-map-3" style="min-height:180px;"></div>
-<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface">Sector 3 &middot; Butembo</div>
+<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface"><span data-i18n="map.sector3">Sector 3 &middot; Butembo</span></div>
 </div>
 <div class="relative rounded-lg overflow-hidden border border-outline-variant">
 <div class="w-full h-full" id="neop-map-4" style="min-height:180px;"></div>
-<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface">Sector 4 &middot; Rutshuru</div>
+<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface"><span data-i18n="map.sector4">Sector 4 &middot; Rutshuru</span></div>
 </div>
 <div class="relative rounded-lg overflow-hidden border border-outline-variant">
 <div class="w-full h-full" id="neop-map-5" style="min-height:180px;"></div>
-<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface">Sector 5 &middot; Sake</div>
+<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface"><span data-i18n="map.sector5">Sector 5 &middot; Sake</span></div>
 </div>
 <div class="relative rounded-lg overflow-hidden border border-outline-variant">
 <div class="w-full h-full" id="neop-map-6" style="min-height:180px;"></div>
-<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface">Sector 6 &middot; Kiwanja</div>
+<div class="absolute top-2 left-2 z-[400] bg-white/90 backdrop-blur px-2 py-0.5 rounded shadow text-[10px] font-bold text-on-surface"><span data-i18n="map.sector6">Sector 6 &middot; Kiwanja</span></div>
 </div>
 </div>
 <!-- Live Feed Ticker -->
@@ -256,34 +357,34 @@
 <div class="bg-primary text-white p-3 rounded-lg flex items-center gap-4 overflow-hidden shadow-xl border border-primary-container">
 <div class="flex items-center gap-2 whitespace-nowrap border-r border-white/20 pr-4">
 <span class="material-symbols-outlined text-error filled-icon">sensors</span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest">Live AI Intelligence</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest" data-i18n="ticker.heading">Live AI Intelligence</span>
 </div>
 <div class="flex-1 overflow-hidden">
 <div class="flex items-center gap-8 animate-marquee whitespace-nowrap">
 <div class="flex items-center gap-2 text-sm">
 <span class="font-bold text-error-container">[09:42]</span>
-<span>AI Detection: High thermal signature detected at Sector 4 Warehouse. Potential fire confirmed.</span>
+<span data-i18n="ticker.msg1">AI Detection: High thermal signature detected at Sector 4 Warehouse. Potential fire confirmed.</span>
 </div>
 <div class="flex items-center gap-2 text-sm">
 <span class="font-bold text-tertiary-fixed">[09:41]</span>
-<span>Crowd Analytics: 200+ individuals gathering at Avenue Karisimbi. Mood index: Volatile.</span>
+<span data-i18n="ticker.msg2">Crowd Analytics: 200+ individuals gathering at Avenue Karisimbi. Mood index: Volatile.</span>
 </div>
 <div class="flex items-center gap-2 text-sm">
 <span class="font-bold text-blue-200">[09:38]</span>
-<span>Resource Update: MED_UNIT_B2 status changed to EN ROUTE.</span>
+<span data-i18n="ticker.msg3">Resource Update: MED_UNIT_B2 status changed to EN ROUTE.</span>
 </div>
 </div>
 </div>
 <div class="flex items-center gap-2 border-l border-white/20 pl-4">
-<span class="text-xs opacity-70">ACTIVE FEEDS: 14</span>
+<span class="text-xs opacity-70" data-i18n="ticker.activeFeeds">ACTIVE FEEDS: 14</span>
 </div>
 </div>
 </div>
 <!-- Incident Triage Panel (Right) -->
 <aside class="absolute right-0 top-0 bottom-0 w-80 bg-surface border-l border-outline-variant z-20 flex flex-col shadow-2xl">
 <div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
-<h2 class="font-label-md text-label-md text-primary uppercase">Incident Triage</h2>
-<span class="bg-secondary text-white text-[10px] px-1.5 py-0.5 rounded font-bold">4 CRITICAL</span>
+<h2 class="font-label-md text-label-md text-primary uppercase" data-i18n="triage.title">Incident Triage</h2>
+<span class="bg-secondary text-white text-[10px] px-1.5 py-0.5 rounded font-bold" data-i18n="triage.criticalBadge">4 CRITICAL</span>
 </div>
 <div class="flex-1 overflow-y-auto p-4 space-y-4">
 <!-- Triage Card 1 -->
@@ -291,11 +392,11 @@
 <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
 <div class="p-3">
 <div class="flex justify-between items-start mb-2">
-<span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Level 5: Critical</span>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-tighter" data-i18n="triage.card1.severity">Level 5: Critical</span>
 <span class="text-[10px] text-on-surface-variant font-mono">ID: #FIRE-0982</span>
 </div>
-<h3 class="font-bold text-sm text-on-surface mb-1 leading-tight">Goma Central Hospital - Structural Fire</h3>
-<p class="text-xs text-on-surface-variant mb-3">Reported 4 mins ago via automated alarm. Smoke detected on floor 3. Evacuation initiated.</p>
+<h3 class="font-bold text-sm text-on-surface mb-1 leading-tight" data-i18n="triage.card1.title">Goma Central Hospital - Structural Fire</h3>
+<p class="text-xs text-on-surface-variant mb-3" data-i18n="triage.card1.desc">Reported 4 mins ago via automated alarm. Smoke detected on floor 3. Evacuation initiated.</p>
 <div class="flex gap-2 mb-3">
 <div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-[10px] text-on-surface-variant font-semibold">
 <span class="material-symbols-outlined text-[14px]">local_fire_department</span> FIRE_COORD
@@ -305,8 +406,8 @@
                                 </div>
 </div>
 <div class="grid grid-cols-2 gap-2">
-<button class="bg-secondary text-white text-[11px] font-bold py-2 rounded uppercase hover:opacity-90 transition-opacity">Escalate</button>
-<button class="bg-primary text-white text-[11px] font-bold py-2 rounded uppercase hover:opacity-90 transition-opacity">Deploy Unit</button>
+<button class="bg-secondary text-white text-[11px] font-bold py-2 rounded uppercase hover:opacity-90 transition-opacity" data-i18n="triage.escalate">Escalate</button>
+<button class="bg-primary text-white text-[11px] font-bold py-2 rounded uppercase hover:opacity-90 transition-opacity" data-i18n="triage.deployUnit">Deploy Unit</button>
 </div>
 </div>
 </div>
@@ -315,13 +416,13 @@
 <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-container"></div>
 <div class="p-3">
 <div class="flex justify-between items-start mb-2">
-<span class="text-[10px] font-bold text-secondary-container uppercase tracking-tighter">Level 4: High</span>
+<span class="text-[10px] font-bold text-secondary-container uppercase tracking-tighter" data-i18n="triage.card2.severity">Level 4: High</span>
 <span class="text-[10px] text-on-surface-variant font-mono">ID: #MED-1102</span>
 </div>
-<h3 class="font-bold text-sm text-on-surface mb-1 leading-tight">Mass Casualty Transit Incident</h3>
-<p class="text-xs text-on-surface-variant mb-3">Vehicle collision on North Road. Multiple injuries reported by field citizen. No units assigned.</p>
+<h3 class="font-bold text-sm text-on-surface mb-1 leading-tight" data-i18n="triage.card2.title">Mass Casualty Transit Incident</h3>
+<p class="text-xs text-on-surface-variant mb-3" data-i18n="triage.card2.desc">Vehicle collision on North Road. Multiple injuries reported by field citizen. No units assigned.</p>
 <div class="grid grid-cols-1 gap-2">
-<button class="border border-primary text-primary text-[11px] font-bold py-2 rounded uppercase hover:bg-primary-container/10 transition-colors">Assign Responder</button>
+<button class="border border-primary text-primary text-[11px] font-bold py-2 rounded uppercase hover:bg-primary-container/10 transition-colors" data-i18n="triage.assignResponder">Assign Responder</button>
 </div>
 </div>
 </div>
@@ -330,18 +431,18 @@
 <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
 <div class="p-3">
 <div class="flex justify-between items-start mb-2">
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter">Level 2: Routine</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-tighter" data-i18n="triage.card3.severity">Level 2: Routine</span>
 <span class="text-[10px] text-on-surface-variant font-mono">ID: #POL-8821</span>
 </div>
-<h3 class="font-bold text-sm text-on-surface mb-1 leading-tight">Civil Disturbance - Sector 7</h3>
-<p class="text-xs text-on-surface-variant mb-3">Protest group size increasing at Market Square. Observation unit requested.</p>
-<button class="w-full text-left text-[11px] text-primary font-bold hover:underline">View Logistics Details →</button>
+<h3 class="font-bold text-sm text-on-surface mb-1 leading-tight" data-i18n="triage.card3.title">Civil Disturbance - Sector 7</h3>
+<p class="text-xs text-on-surface-variant mb-3" data-i18n="triage.card3.desc">Protest group size increasing at Market Square. Observation unit requested.</p>
+<button class="w-full text-left text-[11px] text-primary font-bold hover:underline" data-i18n="triage.viewLogistics">View Logistics Details →</button>
 </div>
 </div>
 </div>
 <div class="p-4 bg-surface-container-highest mt-auto border-t border-outline-variant">
 <button class="w-full flex items-center justify-between p-3 bg-white border border-outline-variant rounded hover:shadow-md transition-shadow">
-<span class="font-label-md text-label-md text-on-surface">Archive Resolved</span>
+<span class="font-label-md text-label-md text-on-surface" data-i18n="triage.archiveResolved">Archive Resolved</span>
 <span class="material-symbols-outlined text-sm">history</span>
 </button>
 </div>

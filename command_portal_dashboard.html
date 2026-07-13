@@ -11,6 +11,119 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="auth.js"></script>
+<script src="i18n.js"></script>
+<script>
+        window.NEOP_TRANSLATIONS = {
+          en: {
+            'sidebar.title': 'Provincial Command',
+            'sidebar.subtitle': 'NEOP Level 2',
+            'nav.dashboard': 'Dashboard',
+            'nav.regionalMap': 'Regional Map',
+            'nav.fleetControl': 'Fleet Control',
+            'nav.activeIncidents': 'Active Incidents',
+            'nav.resourceReadiness': 'Resource Readiness',
+            'nav.districtAlerts': 'District Alerts',
+            'nav.reports': 'Reports',
+            'sidebar.escalateIncident': 'Escalate Incident',
+            'sidebar.settings': 'Settings',
+            'sidebar.support': 'Support',
+            'sidebar.logout': 'Log Out',
+            'sidebar.levelClear': 'Level 2 Clear',
+            'nav.searchPlaceholder': 'Search incidents, resources, or assets...',
+            'dashboard.title': 'Provincial Command Dashboard',
+            'dashboard.region': '| North Kivu',
+            'dashboard.date': 'Monday, 24 May 2026',
+            'dashboard.operational': 'Operational',
+            'dashboard.escalateNational': 'Escalate to National Command',
+            'kpi.severityIndex': 'Provincial Severity Index',
+            'kpi.activeIncidents': 'Active Incidents',
+            'kpi.highLoad': 'High Load',
+            'kpi.acrossDistricts': 'Across 12 Provincial Districts',
+            'kpi.resourceReadiness': 'Resource Readiness',
+            'kpi.personnel': 'Personnel',
+            'kpi.vehicles': 'Vehicles',
+            'kpi.avgResponseTime': 'Avg. Response Time',
+            'kpi.aboveTarget': '2.1m above provincial target',
+            'heatmap.title': 'Regional Incident Heatmap',
+            'heatmap.overlayDistricts': 'Overlay: Districts',
+            'heatmap.filter': 'Filter',
+            'heatmap.criticalZoneBeni': 'Critical Zone (Beni)',
+            'heatmap.monitoringGoma': 'Monitoring (Goma)',
+            'heatmap.heatIntensity': 'Heat Intensity',
+            'heatmap.low': 'LOW',
+            'heatmap.critical': 'CRITICAL',
+            'alerts.title': 'District Alert Feed',
+            'alerts.new': '6 NEW',
+            'alerts.goma.body': 'Multi-unit response required: Major structural collapse in Hub C.',
+            'alerts.tag.rescue': 'RESCUE',
+            'alerts.tag.level4': 'LEVEL 4',
+            'alerts.beni.body': 'Medical supply shortage reported at Central Clinic. Critical stock below 5%.',
+            'alerts.tag.logistics': 'LOGISTICS',
+            'alerts.butembo.body': 'Personnel shift transition complete. Night watch operational.',
+            'alerts.rutshuru.body': 'Flash flood warning: Zone 4 evacuations advised immediately.',
+            'alerts.viewAll': 'View All Active Alerts',
+            'trend.title': 'Resource Allocation Trend',
+            'trend.subtitle': 'Usage metrics over the last 24 hours across the province',
+            'trend.personnel': 'Personnel',
+            'trend.logistics': 'Logistics',
+            'trend.emergencyUnits': 'Emergency Units',
+          },
+          fr: {
+            'sidebar.title': 'Commandement Provincial',
+            'sidebar.subtitle': 'NEOP Niveau 2',
+            'nav.dashboard': 'Tableau de Bord',
+            'nav.regionalMap': 'Carte Régionale',
+            'nav.fleetControl': 'Contrôle de la Flotte',
+            'nav.activeIncidents': 'Incidents Actifs',
+            'nav.resourceReadiness': 'État de Préparation des Ressources',
+            'nav.districtAlerts': 'Alertes de District',
+            'nav.reports': 'Rapports',
+            'sidebar.escalateIncident': "Escalader l'Incident",
+            'sidebar.settings': 'Paramètres',
+            'sidebar.support': 'Assistance',
+            'sidebar.logout': 'Déconnexion',
+            'sidebar.levelClear': 'Habilitation Niveau 2',
+            'nav.searchPlaceholder': 'Rechercher des incidents, ressources ou actifs...',
+            'dashboard.title': 'Tableau de Bord du Commandement Provincial',
+            'dashboard.region': '| North Kivu',
+            'dashboard.date': 'Lundi, 24 mai 2026',
+            'dashboard.operational': 'Opérationnel',
+            'dashboard.escalateNational': 'Escalader vers le Commandement National',
+            'kpi.severityIndex': 'Indice de Gravité Provincial',
+            'kpi.activeIncidents': 'Incidents Actifs',
+            'kpi.highLoad': 'Charge Élevée',
+            'kpi.acrossDistricts': 'Répartis sur 12 Districts Provinciaux',
+            'kpi.resourceReadiness': 'État de Préparation des Ressources',
+            'kpi.personnel': 'Personnel',
+            'kpi.vehicles': 'Véhicules',
+            'kpi.avgResponseTime': 'Temps de Réponse Moyen',
+            'kpi.aboveTarget': "2,1 min au-dessus de l'objectif provincial",
+            'heatmap.title': 'Carte de Chaleur des Incidents Régionaux',
+            'heatmap.overlayDistricts': 'Superposition : Districts',
+            'heatmap.filter': 'Filtrer',
+            'heatmap.criticalZoneBeni': 'Zone Critique (Beni)',
+            'heatmap.monitoringGoma': 'Surveillance (Goma)',
+            'heatmap.heatIntensity': 'Intensité Thermique',
+            'heatmap.low': 'FAIBLE',
+            'heatmap.critical': 'CRITIQUE',
+            'alerts.title': "Flux d'Alertes de District",
+            'alerts.new': '6 NOUVELLES',
+            'alerts.goma.body': 'Intervention multi-unités requise : effondrement structurel majeur au Hub C.',
+            'alerts.tag.rescue': 'SAUVETAGE',
+            'alerts.tag.level4': 'NIVEAU 4',
+            'alerts.beni.body': 'Pénurie de fournitures médicales signalée à la Clinique Centrale. Stock critique inférieur à 5 %.',
+            'alerts.tag.logistics': 'LOGISTIQUE',
+            'alerts.butembo.body': 'Relève du personnel terminée. Garde de nuit opérationnelle.',
+            'alerts.rutshuru.body': 'Alerte de crue soudaine : évacuations de la Zone 4 recommandées immédiatement.',
+            'alerts.viewAll': 'Voir Toutes les Alertes Actives',
+            'trend.title': "Tendance d'Allocation des Ressources",
+            'trend.subtitle': "Indicateurs d'utilisation au cours des 24 dernières heures dans la province",
+            'trend.personnel': 'Personnel',
+            'trend.logistics': 'Logistique',
+            'trend.emergencyUnits': "Unités d'Urgence",
+          },
+        };
+    </script>
 <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script id="tailwind-config">
@@ -130,57 +243,57 @@
 <!-- SideNavBar (Authority: Provincial Command) -->
 <aside class="hidden md:flex flex-col h-screen w-64 left-0 sticky bg-surface-container dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline z-[60]">
 <div class="px-6 py-8">
-<h1 class="font-headline-md text-headline-md font-bold text-primary">Provincial Command</h1>
-<p class="text-on-surface-variant font-label-md mt-1">NEOP Level 2</p>
+<h1 class="font-headline-md text-headline-md font-bold text-primary" data-i18n="sidebar.title">Provincial Command</h1>
+<p class="text-on-surface-variant font-label-md mt-1" data-i18n="sidebar.subtitle">NEOP Level 2</p>
 </div>
 <div class="flex flex-col gap-1 flex-1 overflow-y-auto">
 <!-- Active: Dashboard -->
 <a class="bg-primary-container dark:bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 px-4 py-3 cursor-pointer active:scale-95 duration-150 flex items-center gap-3" href="command_portal_dashboard.html">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
-<span class="font-label-md">Dashboard</span>
+<span class="font-label-md" data-i18n="nav.dashboard">Dashboard</span>
 </a>
 <a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high hover:text-on-surface px-4 py-3 mx-2 rounded-lg cursor-pointer transition-all flex items-center gap-3" href="live_map.html">
 <span class="material-symbols-outlined">map</span>
-<span class="font-label-md">Regional Map</span>
+<span class="font-label-md" data-i18n="nav.regionalMap">Regional Map</span>
 </a>
 <a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high hover:text-on-surface px-4 py-3 mx-2 rounded-lg cursor-pointer transition-all flex items-center gap-3" href="dashboard.html">
 <span class="material-symbols-outlined">local_shipping</span>
-<span class="font-label-md">Fleet Control</span>
+<span class="font-label-md" data-i18n="nav.fleetControl">Fleet Control</span>
 </a>
 <div class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high hover:text-on-surface px-4 py-3 mx-2 rounded-lg cursor-pointer transition-all flex items-center gap-3">
 <span class="material-symbols-outlined">crisis_alert</span>
-<span class="font-label-md">Active Incidents</span>
+<span class="font-label-md" data-i18n="nav.activeIncidents">Active Incidents</span>
 </div>
 <div class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high hover:text-on-surface px-4 py-3 mx-2 rounded-lg cursor-pointer transition-all flex items-center gap-3">
 <span class="material-symbols-outlined">inventory_2</span>
-<span class="font-label-md">Resource Readiness</span>
+<span class="font-label-md" data-i18n="nav.resourceReadiness">Resource Readiness</span>
 </div>
 <div class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high hover:text-on-surface px-4 py-3 mx-2 rounded-lg cursor-pointer transition-all flex items-center gap-3">
 <span class="material-symbols-outlined">report_problem</span>
-<span class="font-label-md">District Alerts</span>
+<span class="font-label-md" data-i18n="nav.districtAlerts">District Alerts</span>
 </div>
 <div class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high hover:text-on-surface px-4 py-3 mx-2 rounded-lg cursor-pointer transition-all flex items-center gap-3">
 <span class="material-symbols-outlined">analytics</span>
-<span class="font-label-md">Reports</span>
+<span class="font-label-md" data-i18n="nav.reports">Reports</span>
 </div>
 </div>
 <div class="px-4 py-6 border-t border-outline-variant">
 <button class="w-full bg-secondary text-on-secondary font-label-md py-3 rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-transform" onclick="neopShowToast('Incident escalated.', 'emergency_share')">
 <span class="material-symbols-outlined">emergency_share</span>
-                Escalate Incident
+                <span data-i18n="sidebar.escalateIncident">Escalate Incident</span>
             </button>
 <div class="mt-6 flex flex-col gap-2">
 <div class="text-on-surface-variant hover:text-on-surface px-2 py-2 flex items-center gap-3 cursor-pointer transition-colors">
 <span class="material-symbols-outlined">settings</span>
-<span class="font-label-md">Settings</span>
+<span class="font-label-md" data-i18n="sidebar.settings">Settings</span>
 </div>
 <div class="text-on-surface-variant hover:text-on-surface px-2 py-2 flex items-center gap-3 cursor-pointer transition-colors">
 <span class="material-symbols-outlined">help</span>
-<span class="font-label-md">Support</span>
+<span class="font-label-md" data-i18n="sidebar.support">Support</span>
 </div>
 <a class="text-on-surface-variant hover:text-on-surface px-2 py-2 flex items-center gap-3 cursor-pointer transition-colors" href="login.html" onclick="neopLogout(); return false;">
 <span class="material-symbols-outlined">logout</span>
-<span class="font-label-md">Log Out</span>
+<span class="font-label-md" data-i18n="sidebar.logout">Log Out</span>
 </a>
 </div>
 <div class="mt-6 flex items-center gap-3 px-2">
@@ -189,7 +302,7 @@
 </div>
 <div class="flex flex-col">
 <span class="font-label-md text-on-surface" data-neop-user>Commander</span>
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Level 2 Clear</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold" data-i18n="sidebar.levelClear">Level 2 Clear</span>
 </div>
 </div>
 </div>
@@ -201,7 +314,7 @@
 <span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">NEOP Command Portal</span>
 <div class="relative hidden lg:flex items-center">
 <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
-<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-full w-80 text-body-md focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Search incidents, resources, or assets..." type="text"/>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-full w-80 text-body-md focus:outline-none focus:ring-2 focus:ring-primary/20" data-i18n-placeholder="nav.searchPlaceholder" placeholder="Search incidents, resources, or assets..." type="text"/>
 </div>
 </div>
 <div class="flex items-center gap-4">
@@ -215,6 +328,10 @@
 <div class="p-2 cursor-pointer hover:bg-surface-container-low transition-colors text-on-surface-variant">
 <span class="material-symbols-outlined">account_circle</span>
 </div>
+<div class="p-2 cursor-pointer hover:bg-surface-container-low transition-colors text-on-surface-variant flex items-center gap-1" data-neop-lang-toggle title="Switch language / Changer de langue">
+<span class="material-symbols-outlined">language</span>
+<span class="font-label-sm" data-neop-lang-code>EN</span>
+</div>
 </div>
 </nav>
 <!-- Content Canvas -->
@@ -222,17 +339,17 @@
 <!-- Dashboard Header -->
 <header class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
 <div>
-<h2 class="font-headline-lg text-headline-lg text-primary">Provincial Command Dashboard <span class="font-normal text-on-surface-variant">| North Kivu</span></h2>
+<h2 class="font-headline-lg text-headline-lg text-primary"><span data-i18n="dashboard.title">Provincial Command Dashboard</span> <span class="font-normal text-on-surface-variant" data-i18n="dashboard.region">| North Kivu</span></h2>
 <div class="flex items-center gap-3 mt-1">
 <span class="font-code-md text-on-surface-variant" id="current-time">09:42:15 GMT+2</span>
 <span class="text-outline">/</span>
-<span class="font-label-md text-on-surface-variant">Monday, 24 May 2026</span>
-<span class="bg-primary text-on-primary text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">Operational</span>
+<span class="font-label-md text-on-surface-variant" data-i18n="dashboard.date">Monday, 24 May 2026</span>
+<span class="bg-primary text-on-primary text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider" data-i18n="dashboard.operational">Operational</span>
 </div>
 </div>
 <button class="bg-secondary text-on-secondary font-label-md px-6 py-3 rounded flex items-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all" onclick="neopShowToast('Incident escalated to National Command.', 'forward_to_inbox')">
 <span class="material-symbols-outlined">forward_to_inbox</span>
-                    Escalate to National Command
+                    <span data-i18n="dashboard.escalateNational">Escalate to National Command</span>
                 </button>
 </header>
 <!-- KPI Row -->
@@ -240,7 +357,7 @@
 <!-- Severity Index -->
 <div class="bg-surface border border-outline-variant p-5 rounded flex flex-col relative overflow-hidden group">
 <div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
-<span class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2">Provincial Severity Index</span>
+<span class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2" data-i18n="kpi.severityIndex">Provincial Severity Index</span>
 <div class="flex items-baseline gap-2">
 <span class="font-display-lg text-display-lg text-primary">6.8</span>
 <span class="text-on-surface-variant font-label-md">/ 10</span>
@@ -256,28 +373,28 @@
 <!-- Active Incidents -->
 <div class="bg-surface border border-outline-variant p-5 rounded flex flex-col relative group">
 <div class="absolute top-0 left-0 w-1 h-full bg-on-tertiary-container"></div>
-<span class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2">Active Incidents</span>
+<span class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2" data-i18n="kpi.activeIncidents">Active Incidents</span>
 <div class="flex items-baseline gap-2">
 <span class="font-display-lg text-display-lg text-primary">142</span>
-<span class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded-full font-bold ml-2">High Load</span>
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded-full font-bold ml-2" data-i18n="kpi.highLoad">High Load</span>
 </div>
-<p class="text-on-surface-variant text-label-md mt-2">Across 12 Provincial Districts</p>
+<p class="text-on-surface-variant text-label-md mt-2" data-i18n="kpi.acrossDistricts">Across 12 Provincial Districts</p>
 </div>
 <!-- Resource Readiness -->
 <div class="bg-surface border border-outline-variant p-5 rounded flex flex-col relative group">
 <div class="absolute top-0 left-0 w-1 h-full bg-surface-tint"></div>
-<span class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2">Resource Readiness</span>
+<span class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2" data-i18n="kpi.resourceReadiness">Resource Readiness</span>
 <div class="flex items-baseline gap-2">
 <span class="font-display-lg text-display-lg text-primary">84.2</span>
 <span class="text-on-surface-variant font-label-md">%</span>
 </div>
 <div class="flex gap-2 mt-4">
 <div class="flex-1 flex flex-col gap-1">
-<span class="text-[10px] text-on-surface-variant uppercase font-bold">Personnel</span>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold" data-i18n="kpi.personnel">Personnel</span>
 <div class="h-1 bg-surface-tint w-[92%] rounded-full"></div>
 </div>
 <div class="flex-1 flex flex-col gap-1">
-<span class="text-[10px] text-on-surface-variant uppercase font-bold">Vehicles</span>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold" data-i18n="kpi.vehicles">Vehicles</span>
 <div class="h-1 bg-surface-tint w-[76%] rounded-full"></div>
 </div>
 </div>
@@ -285,14 +402,14 @@
 <!-- Avg. Response Time -->
 <div class="bg-surface border border-outline-variant p-5 rounded flex flex-col relative group">
 <div class="absolute top-0 left-0 w-1 h-full bg-outline"></div>
-<span class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2">Avg. Response Time</span>
+<span class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2" data-i18n="kpi.avgResponseTime">Avg. Response Time</span>
 <div class="flex items-baseline gap-2">
 <span class="font-display-lg text-display-lg text-primary">14.5</span>
 <span class="text-on-surface-variant font-label-md">min</span>
 </div>
 <p class="text-on-surface-variant text-label-md mt-2 flex items-center gap-1">
 <span class="material-symbols-outlined text-[16px] text-error">warning</span>
-                        2.1m above provincial target
+                        <span data-i18n="kpi.aboveTarget">2.1m above provincial target</span>
                     </p>
 </div>
 </div>
@@ -303,13 +420,13 @@
 <div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
 <h3 class="font-label-md text-primary flex items-center gap-2 uppercase tracking-tight">
 <span class="material-symbols-outlined">layers</span>
-                            Regional Incident Heatmap
+                            <span data-i18n="heatmap.title">Regional Incident Heatmap</span>
                         </h3>
 <div class="flex gap-2">
-<button class="px-3 py-1 bg-surface-container-high border border-outline-variant rounded font-label-sm text-on-surface hover:bg-surface-variant transition-colors">Overlay: Districts</button>
+<button class="px-3 py-1 bg-surface-container-high border border-outline-variant rounded font-label-sm text-on-surface hover:bg-surface-variant transition-colors" data-i18n="heatmap.overlayDistricts">Overlay: Districts</button>
 <button class="px-3 py-1 bg-primary text-on-primary rounded font-label-sm flex items-center gap-1">
 <span class="material-symbols-outlined text-[16px]">filter_alt</span>
-                                Filter
+                                <span data-i18n="heatmap.filter">Filter</span>
                             </button>
 </div>
 </div>
@@ -320,21 +437,21 @@
 <div class="bg-white/90 backdrop-blur border border-outline-variant p-2 rounded shadow-sm">
 <div class="flex items-center gap-2 mb-1">
 <div class="w-3 h-3 bg-secondary rounded-full"></div>
-<span class="text-[10px] font-bold uppercase text-on-surface">Critical Zone (Beni)</span>
+<span class="text-[10px] font-bold uppercase text-on-surface" data-i18n="heatmap.criticalZoneBeni">Critical Zone (Beni)</span>
 </div>
 <div class="flex items-center gap-2">
 <div class="w-3 h-3 bg-tertiary-container rounded-full"></div>
-<span class="text-[10px] font-bold uppercase text-on-surface">Monitoring (Goma)</span>
+<span class="text-[10px] font-bold uppercase text-on-surface" data-i18n="heatmap.monitoringGoma">Monitoring (Goma)</span>
 </div>
 </div>
 </div>
 <!-- Legend Overlay -->
 <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur border border-outline-variant p-3 rounded shadow-sm max-w-[200px]">
-<h4 class="font-label-sm mb-2 border-b border-outline-variant pb-1">Heat Intensity</h4>
+<h4 class="font-label-sm mb-2 border-b border-outline-variant pb-1" data-i18n="heatmap.heatIntensity">Heat Intensity</h4>
 <div class="w-full h-2 bg-gradient-to-r from-blue-500 via-yellow-500 to-red-600 rounded-full mb-1"></div>
 <div class="flex justify-between text-[9px] font-bold text-on-surface-variant">
-<span>LOW</span>
-<span>CRITICAL</span>
+<span data-i18n="heatmap.low">LOW</span>
+<span data-i18n="heatmap.critical">CRITICAL</span>
 </div>
 </div>
 </div>
@@ -342,8 +459,8 @@
 <!-- District Alert Feed (1/3) -->
 <section class="bg-surface border border-outline-variant rounded flex flex-col overflow-hidden">
 <div class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center">
-<h3 class="font-label-md text-primary uppercase tracking-tight">District Alert Feed</h3>
-<span class="text-[10px] font-bold text-secondary bg-error-container px-2 py-0.5 rounded">6 NEW</span>
+<h3 class="font-label-md text-primary uppercase tracking-tight" data-i18n="alerts.title">District Alert Feed</h3>
+<span class="text-[10px] font-bold text-secondary bg-error-container px-2 py-0.5 rounded" data-i18n="alerts.new">6 NEW</span>
 </div>
 <div class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 custom-scrollbar">
 <!-- Alert Item 1 -->
@@ -352,10 +469,10 @@
 <span class="font-label-md text-secondary font-bold">GOMA</span>
 <span class="text-[10px] text-on-surface-variant font-code-md">02m ago</span>
 </div>
-<p class="font-label-md text-on-surface leading-tight">Multi-unit response required: Major structural collapse in Hub C.</p>
+<p class="font-label-md text-on-surface leading-tight" data-i18n="alerts.goma.body">Multi-unit response required: Major structural collapse in Hub C.</p>
 <div class="mt-2 flex gap-2">
-<span class="text-[9px] font-bold border border-secondary text-secondary px-1.5 py-0.5 rounded">RESCUE</span>
-<span class="text-[9px] font-bold border border-outline text-on-surface-variant px-1.5 py-0.5 rounded">LEVEL 4</span>
+<span class="text-[9px] font-bold border border-secondary text-secondary px-1.5 py-0.5 rounded" data-i18n="alerts.tag.rescue">RESCUE</span>
+<span class="text-[9px] font-bold border border-outline text-on-surface-variant px-1.5 py-0.5 rounded" data-i18n="alerts.tag.level4">LEVEL 4</span>
 </div>
 </div>
 <!-- Alert Item 2 -->
@@ -364,9 +481,9 @@
 <span class="font-label-md text-on-tertiary-container font-bold">BENI</span>
 <span class="text-[10px] text-on-surface-variant font-code-md">14m ago</span>
 </div>
-<p class="font-label-md text-on-surface leading-tight">Medical supply shortage reported at Central Clinic. Critical stock below 5%.</p>
+<p class="font-label-md text-on-surface leading-tight" data-i18n="alerts.beni.body">Medical supply shortage reported at Central Clinic. Critical stock below 5%.</p>
 <div class="mt-2 flex gap-2">
-<span class="text-[9px] font-bold border border-tertiary-container text-on-tertiary-container px-1.5 py-0.5 rounded">LOGISTICS</span>
+<span class="text-[9px] font-bold border border-tertiary-container text-on-tertiary-container px-1.5 py-0.5 rounded" data-i18n="alerts.tag.logistics">LOGISTICS</span>
 </div>
 </div>
 <!-- Alert Item 3 -->
@@ -375,7 +492,7 @@
 <span class="font-label-md text-surface-tint font-bold">BUTEMBO</span>
 <span class="text-[10px] text-on-surface-variant font-code-md">31m ago</span>
 </div>
-<p class="font-label-md text-on-surface leading-tight">Personnel shift transition complete. Night watch operational.</p>
+<p class="font-label-md text-on-surface leading-tight" data-i18n="alerts.butembo.body">Personnel shift transition complete. Night watch operational.</p>
 </div>
 <!-- Alert Item 4 -->
 <div class="status-bar-critical bg-surface-container-low p-3 rounded-r border-t border-b border-r border-outline-variant hover:bg-surface-container-high transition-colors cursor-pointer group">
@@ -383,11 +500,11 @@
 <span class="font-label-md text-secondary font-bold">RUTSHURU</span>
 <span class="text-[10px] text-on-surface-variant font-code-md">44m ago</span>
 </div>
-<p class="font-label-md text-on-surface leading-tight">Flash flood warning: Zone 4 evacuations advised immediately.</p>
+<p class="font-label-md text-on-surface leading-tight" data-i18n="alerts.rutshuru.body">Flash flood warning: Zone 4 evacuations advised immediately.</p>
 </div>
 </div>
 <div class="p-3 border-t border-outline-variant bg-surface-container-low">
-<button class="w-full text-primary font-label-sm py-2 hover:underline">View All Active Alerts</button>
+<button class="w-full text-primary font-label-sm py-2 hover:underline" data-i18n="alerts.viewAll">View All Active Alerts</button>
 </div>
 </section>
 </div>
@@ -395,21 +512,21 @@
 <section class="bg-surface border border-outline-variant rounded p-6">
 <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
 <div>
-<h3 class="font-headline-md text-primary">Resource Allocation Trend</h3>
-<p class="text-on-surface-variant font-body-md">Usage metrics over the last 24 hours across the province</p>
+<h3 class="font-headline-md text-primary" data-i18n="trend.title">Resource Allocation Trend</h3>
+<p class="text-on-surface-variant font-body-md" data-i18n="trend.subtitle">Usage metrics over the last 24 hours across the province</p>
 </div>
 <div class="flex items-center gap-4">
 <div class="flex items-center gap-2">
 <div class="w-3 h-3 bg-primary rounded-sm"></div>
-<span class="font-label-sm text-on-surface-variant">Personnel</span>
+<span class="font-label-sm text-on-surface-variant" data-i18n="trend.personnel">Personnel</span>
 </div>
 <div class="flex items-center gap-2">
 <div class="w-3 h-3 bg-on-primary-container rounded-sm"></div>
-<span class="font-label-sm text-on-surface-variant">Logistics</span>
+<span class="font-label-sm text-on-surface-variant" data-i18n="trend.logistics">Logistics</span>
 </div>
 <div class="flex items-center gap-2">
 <div class="w-3 h-3 bg-secondary rounded-sm"></div>
-<span class="font-label-sm text-on-surface-variant">Emergency Units</span>
+<span class="font-label-sm text-on-surface-variant" data-i18n="trend.emergencyUnits">Emergency Units</span>
 </div>
 </div>
 </div>

@@ -9,6 +9,149 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="auth.js"></script>
+<script src="i18n.js"></script>
+<script>
+        window.NEOP_TRANSLATIONS = {
+          en: {
+            'nav.dashboard': 'Dashboard',
+            'nav.map': 'Operational Map',
+            'nav.command': 'Command Portal',
+            'search.global': 'Global Search...',
+            'sidebar.tagline': 'Emergency Operations',
+            'sidebar.dashboard': 'Dashboard',
+            'sidebar.liveMap': 'Live Map',
+            'sidebar.commandPortal': 'Command Portal',
+            'sidebar.incidents': 'Incidents',
+            'sidebar.resources': 'Resources',
+            'sidebar.fleet': 'Fleet',
+            'sidebar.reports': 'Reports',
+            'sidebar.broadcastAlert': 'Broadcast Alert',
+            'sidebar.systemStatus': 'System Status',
+            'sidebar.logOut': 'Log Out',
+            'metrics.totalFleet': 'Total Fleet',
+            'metrics.totalFleetCaption': '+4% from last month',
+            'metrics.activeUnits': 'Active Units',
+            'metrics.activeUnitsCaption': '62% Operational',
+            'metrics.inMaintenance': 'In Maintenance',
+            'metrics.inMaintenanceCaption': '3 Urgent Repairs',
+            'metrics.fuelReserve': 'Fuel/Energy Reserve',
+            'filters.searchPlaceholder': 'Filter by ID, type, or sector...',
+            'filters.allTypes': 'All Types',
+            'filters.ambulance': 'Ambulance',
+            'filters.fireTruck': 'Fire Truck',
+            'filters.police': 'Police',
+            'filters.drone': 'Drone',
+            'filters.allStatuses': 'All Statuses',
+            'filters.available': 'Available',
+            'filters.dispatched': 'Dispatched',
+            'filters.maintenance': 'Maintenance',
+            'filters.addVehicle': 'Add Vehicle',
+            'filters.export': 'Export',
+            'table.unitId': 'Unit ID',
+            'table.type': 'Type',
+            'table.status': 'Status',
+            'table.location': 'Location/Sector',
+            'table.fuelBattery': 'Fuel/Battery',
+            'table.nextMaint': 'Next Maint.',
+            'table.actions': 'Actions',
+            'table.overdue': 'OVERDUE',
+            'vehicle.ambulance': 'Ambulance',
+            'vehicle.fireTruck': 'Fire Truck',
+            'vehicle.policeCruiser': 'Police Cruiser',
+            'vehicle.aerialDrone': 'Aerial Drone',
+            'vehicle.paramedicSuv': 'Paramedic SUV',
+            'status.available': 'Available',
+            'status.maintenance': 'Maintenance',
+            'status.dispatched': 'Dispatched',
+            'status.standby': 'Standby',
+            'pagination.caption': 'Showing 1-5 of 142 units',
+            'alerts.title': 'Maintenance Alerts',
+            'alerts.urgentBadge': '3 URGENT',
+            'alerts.alert1.title': 'FIRE-09: Engine Fault',
+            'alerts.alert1.body': 'O2 sensor failure detected. Vehicle must remain grounded until parts arrive from depot.',
+            'alerts.decommission': 'DE-COMMISSION',
+            'alerts.logDetails': 'LOG DETAILS',
+            'alerts.alert2.title': 'DRONE-22: Low Battery',
+            'alerts.alert2.body': 'Battery health degraded below 15% threshold. Internal resistance error reported.',
+            'alerts.replacePack': 'REPLACE PACK',
+            'alerts.alert3.title': 'ALPHA-12: Scheduled Care',
+            'alerts.alert3.body': 'Brake pad inspection due in 48 hours. Estimated downtime: 2 hours.',
+            'alerts.scheduleMaintenance': 'Schedule Maintenance',
+            'sector.title': 'Sector Distribution',
+            'sector.mostActive': 'Most Active: Sector 7',
+            'sector.unitsEnRoute': '24 Units En Route',
+          },
+          fr: {
+            'nav.dashboard': 'Tableau de bord',
+            'nav.map': 'Carte opérationnelle',
+            'nav.command': 'Portail de commandement',
+            'search.global': 'Recherche globale...',
+            'sidebar.tagline': "Opérations d'urgence",
+            'sidebar.dashboard': 'Tableau de bord',
+            'sidebar.liveMap': 'Carte en direct',
+            'sidebar.commandPortal': 'Portail de commandement',
+            'sidebar.incidents': 'Incidents',
+            'sidebar.resources': 'Ressources',
+            'sidebar.fleet': 'Flotte',
+            'sidebar.reports': 'Rapports',
+            'sidebar.broadcastAlert': 'Diffuser une alerte',
+            'sidebar.systemStatus': 'État du système',
+            'sidebar.logOut': 'Déconnexion',
+            'metrics.totalFleet': 'Flotte totale',
+            'metrics.totalFleetCaption': '+4 % depuis le mois dernier',
+            'metrics.activeUnits': 'Unités actives',
+            'metrics.activeUnitsCaption': '62 % opérationnelles',
+            'metrics.inMaintenance': 'En maintenance',
+            'metrics.inMaintenanceCaption': '3 réparations urgentes',
+            'metrics.fuelReserve': 'Réserve carburant/énergie',
+            'filters.searchPlaceholder': 'Filtrer par ID, type ou secteur...',
+            'filters.allTypes': 'Tous les types',
+            'filters.ambulance': 'Ambulance',
+            'filters.fireTruck': 'Camion de pompiers',
+            'filters.police': 'Police',
+            'filters.drone': 'Drone',
+            'filters.allStatuses': 'Tous les statuts',
+            'filters.available': 'Disponible',
+            'filters.dispatched': 'Déployé',
+            'filters.maintenance': 'Maintenance',
+            'filters.addVehicle': 'Ajouter un véhicule',
+            'filters.export': 'Exporter',
+            'table.unitId': "ID de l'unité",
+            'table.type': 'Type',
+            'table.status': 'Statut',
+            'table.location': 'Emplacement/Secteur',
+            'table.fuelBattery': 'Carburant/Batterie',
+            'table.nextMaint': 'Prochaine maint.',
+            'table.actions': 'Actions',
+            'table.overdue': 'EN RETARD',
+            'vehicle.ambulance': 'Ambulance',
+            'vehicle.fireTruck': 'Camion de pompiers',
+            'vehicle.policeCruiser': 'Véhicule de police',
+            'vehicle.aerialDrone': 'Drone aérien',
+            'vehicle.paramedicSuv': 'VUS paramédical',
+            'status.available': 'Disponible',
+            'status.maintenance': 'Maintenance',
+            'status.dispatched': 'Déployé',
+            'status.standby': 'En attente',
+            'pagination.caption': 'Affichage de 1 à 5 sur 142 unités',
+            'alerts.title': 'Alertes de maintenance',
+            'alerts.urgentBadge': '3 URGENTES',
+            'alerts.alert1.title': 'FIRE-09 : Panne moteur',
+            'alerts.alert1.body': "Défaillance du capteur O2 détectée. Le véhicule doit rester immobilisé jusqu'à l'arrivée des pièces depuis le dépôt.",
+            'alerts.decommission': 'MISE HORS SERVICE',
+            'alerts.logDetails': 'CONSIGNER LES DÉTAILS',
+            'alerts.alert2.title': 'DRONE-22 : Batterie faible',
+            'alerts.alert2.body': 'Santé de la batterie dégradée sous le seuil de 15 %. Erreur de résistance interne signalée.',
+            'alerts.replacePack': 'REMPLACER LA BATTERIE',
+            'alerts.alert3.title': 'ALPHA-12 : Entretien programmé',
+            'alerts.alert3.body': "Inspection des plaquettes de frein prévue dans 48 heures. Temps d'immobilisation estimé : 2 heures.",
+            'alerts.scheduleMaintenance': 'Planifier une maintenance',
+            'sector.title': 'Répartition par secteur',
+            'sector.mostActive': 'Secteur le plus actif : Secteur 7',
+            'sector.unitsEnRoute': '24 unités en route',
+          },
+        };
+    </script>
 <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -129,21 +272,25 @@
 <h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">NEOP Fleet Control</h1>
 <div class="hidden md:flex items-center gap-6">
 <nav class="flex gap-4">
-<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary py-4 font-label-md text-label-md transition-colors" href="dashboard.html">Dashboard</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest py-4 px-2 font-label-md text-label-md transition-colors" href="live_map.html">Operational Map</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest py-4 px-2 font-label-md text-label-md transition-colors" href="command_portal_dashboard.html">Command Portal</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary py-4 font-label-md text-label-md transition-colors" data-i18n="nav.dashboard" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest py-4 px-2 font-label-md text-label-md transition-colors" data-i18n="nav.map" href="live_map.html">Operational Map</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest py-4 px-2 font-label-md text-label-md transition-colors" data-i18n="nav.command" href="command_portal_dashboard.html">Command Portal</a>
 </nav>
 </div>
 </div>
 <div class="flex items-center gap-4">
 <div class="relative hidden sm:block">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Global Search..." type="text"/>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary" data-i18n-placeholder="search.global" placeholder="Global Search..." type="text"/>
 </div>
 <div class="flex gap-2">
 <button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
 <button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">settings</span></button>
 <button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">help</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors flex items-center gap-1" data-neop-lang-toggle title="Switch language / Changer de langue">
+<span class="material-symbols-outlined">language</span>
+<span class="font-label-sm text-label-sm" data-neop-lang-code>EN</span>
+</button>
 </div>
 <span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:block" data-neop-user></span>
 <div class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline">
@@ -159,51 +306,51 @@
 <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
 <span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">National Fleet</span>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Emergency Operations</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest" data-i18n="sidebar.tagline">Emergency Operations</span>
 </div>
 <nav class="flex-1 space-y-1">
 <a class="flex items-center gap-3 px-3 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg transition-all duration-200 ease-in-out" href="dashboard.html">
 <span class="material-symbols-outlined">dashboard</span>
-<span class="font-label-md text-label-md">Dashboard</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.dashboard">Dashboard</span>
 </a>
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="live_map.html">
 <span class="material-symbols-outlined">map</span>
-<span class="font-label-md text-label-md">Live Map</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.liveMap">Live Map</span>
 </a>
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="command_portal_dashboard.html">
 <span class="material-symbols-outlined">admin_panel_settings</span>
-<span class="font-label-md text-label-md">Command Portal</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.commandPortal">Command Portal</span>
 </a>
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
 <span class="material-symbols-outlined">emergency</span>
-<span class="font-label-md text-label-md">Incidents</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.incidents">Incidents</span>
 </a>
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
 <span class="material-symbols-outlined">inventory_2</span>
-<span class="font-label-md text-label-md">Resources</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.resources">Resources</span>
 </a>
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
 <span class="material-symbols-outlined">local_shipping</span>
-<span class="font-label-md text-label-md">Fleet</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.fleet">Fleet</span>
 </a>
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
 <span class="material-symbols-outlined">analytics</span>
-<span class="font-label-md text-label-md">Reports</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.reports">Reports</span>
 </a>
 </nav>
 <div class="mt-auto border-t border-outline-variant pt-4 space-y-4">
 <button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
-                    Broadcast Alert
+<span data-i18n="sidebar.broadcastAlert">Broadcast Alert</span>
                 </button>
 <div class="space-y-1">
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
 <span class="material-symbols-outlined">check_circle</span>
-<span class="font-label-md text-label-md">System Status</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.systemStatus">System Status</span>
 </a>
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all" href="login.html" onclick="neopLogout(); return false;">
 <span class="material-symbols-outlined">logout</span>
-<span class="font-label-md text-label-md">Log Out</span>
+<span class="font-label-md text-label-md" data-i18n="sidebar.logOut">Log Out</span>
 </a>
 </div>
 </div>
@@ -217,11 +364,11 @@
 <span class="material-symbols-outlined text-4xl">local_shipping</span>
 </div>
 <div>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Total Fleet</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1" data-i18n="metrics.totalFleet">Total Fleet</p>
 <h2 class="font-display-lg text-display-lg text-primary">142</h2>
 </div>
 <div class="flex items-center gap-2 mt-2">
-<span class="text-xs font-bold text-on-surface-variant">+4% from last month</span>
+<span class="text-xs font-bold text-on-surface-variant" data-i18n="metrics.totalFleetCaption">+4% from last month</span>
 </div>
 </div>
 <div class="bg-surface border border-outline-variant p-5 rounded-lg flex flex-col justify-between relative overflow-hidden">
@@ -230,12 +377,12 @@
 <span class="material-symbols-outlined text-4xl">check_circle</span>
 </div>
 <div>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Active Units</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1" data-i18n="metrics.activeUnits">Active Units</p>
 <h2 class="font-display-lg text-display-lg text-primary">88</h2>
 </div>
 <div class="flex items-center gap-2 mt-2">
 <span class="flex h-2 w-2 rounded-full bg-[#4caf50]"></span>
-<span class="text-xs font-bold text-on-surface-variant">62% Operational</span>
+<span class="text-xs font-bold text-on-surface-variant" data-i18n="metrics.activeUnitsCaption">62% Operational</span>
 </div>
 </div>
 <div class="bg-surface border border-outline-variant p-5 rounded-lg flex flex-col justify-between relative overflow-hidden">
@@ -244,12 +391,12 @@
 <span class="material-symbols-outlined text-4xl">build</span>
 </div>
 <div>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">In Maintenance</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1" data-i18n="metrics.inMaintenance">In Maintenance</p>
 <h2 class="font-display-lg text-display-lg text-secondary">12</h2>
 </div>
 <div class="flex items-center gap-2 mt-2 text-secondary">
 <span class="material-symbols-outlined text-sm">warning</span>
-<span class="text-xs font-bold">3 Urgent Repairs</span>
+<span class="text-xs font-bold" data-i18n="metrics.inMaintenanceCaption">3 Urgent Repairs</span>
 </div>
 </div>
 <div class="bg-surface border border-outline-variant p-5 rounded-lg flex flex-col justify-between relative overflow-hidden">
@@ -258,7 +405,7 @@
 <span class="material-symbols-outlined text-4xl">ev_station</span>
 </div>
 <div>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Fuel/Energy Reserve</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1" data-i18n="metrics.fuelReserve">Fuel/Energy Reserve</p>
 <h2 class="font-display-lg text-display-lg text-primary">78<span class="text-2xl">%</span></h2>
 </div>
 <div class="w-full bg-surface-container-high h-1.5 rounded-full mt-4">
@@ -274,28 +421,28 @@
 <div class="flex gap-4 items-center overflow-x-auto pb-2 md:pb-0">
 <div class="relative min-w-[280px]">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="w-full pl-10 pr-4 py-2 border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary text-body-md font-body-md" placeholder="Filter by ID, type, or sector..." type="text"/>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary text-body-md font-body-md" data-i18n-placeholder="filters.searchPlaceholder" placeholder="Filter by ID, type, or sector..." type="text"/>
 </div>
 <select class="border border-outline-variant bg-surface-container-lowest px-4 py-2 font-label-md text-label-md focus:ring-2 focus:ring-primary">
-<option>All Types</option>
-<option>Ambulance</option>
-<option>Fire Truck</option>
-<option>Police</option>
-<option>Drone</option>
+<option data-i18n="filters.allTypes">All Types</option>
+<option data-i18n="filters.ambulance">Ambulance</option>
+<option data-i18n="filters.fireTruck">Fire Truck</option>
+<option data-i18n="filters.police">Police</option>
+<option data-i18n="filters.drone">Drone</option>
 </select>
 <select class="border border-outline-variant bg-surface-container-lowest px-4 py-2 font-label-md text-label-md focus:ring-2 focus:ring-primary">
-<option>All Statuses</option>
-<option>Available</option>
-<option>Dispatched</option>
-<option>Maintenance</option>
+<option data-i18n="filters.allStatuses">All Statuses</option>
+<option data-i18n="filters.available">Available</option>
+<option data-i18n="filters.dispatched">Dispatched</option>
+<option data-i18n="filters.maintenance">Maintenance</option>
 </select>
 </div>
 <div class="flex gap-2">
 <button class="bg-primary text-on-primary px-4 py-2 font-label-md flex items-center gap-2 hover:opacity-90">
-<span class="material-symbols-outlined text-lg">add</span> Add Vehicle
+<span class="material-symbols-outlined text-lg">add</span> <span data-i18n="filters.addVehicle">Add Vehicle</span>
                             </button>
 <button class="border border-outline text-on-surface px-4 py-2 font-label-md flex items-center gap-2 hover:bg-surface-container-high">
-<span class="material-symbols-outlined text-lg">download</span> Export
+<span class="material-symbols-outlined text-lg">download</span> <span data-i18n="filters.export">Export</span>
                             </button>
 </div>
 </div>
@@ -304,13 +451,13 @@
 <table class="w-full text-left border-collapse">
 <thead class="bg-surface-container-low border-b border-outline-variant">
 <tr>
-<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Unit ID</th>
-<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Type</th>
-<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Status</th>
-<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Location/Sector</th>
-<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Fuel/Battery</th>
-<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase">Next Maint.</th>
-<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase text-right">Actions</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase" data-i18n="table.unitId">Unit ID</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase" data-i18n="table.type">Type</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase" data-i18n="table.status">Status</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase" data-i18n="table.location">Location/Sector</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase" data-i18n="table.fuelBattery">Fuel/Battery</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase" data-i18n="table.nextMaint">Next Maint.</th>
+<th class="px-4 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase text-right" data-i18n="table.actions">Actions</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-outline-variant">
@@ -320,11 +467,11 @@
 <td class="px-4 py-4">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-on-surface-variant">emergency</span>
-<span class="font-body-md text-body-md">Ambulance</span>
+<span class="font-body-md text-body-md" data-i18n="vehicle.ambulance">Ambulance</span>
 </div>
 </td>
 <td class="px-4 py-4">
-<span class="bg-[#e8f5e9] text-[#2e7d32] text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-[#2e7d32]/20">Available</span>
+<span class="bg-[#e8f5e9] text-[#2e7d32] text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-[#2e7d32]/20" data-i18n="status.available">Available</span>
 </td>
 <td class="px-4 py-4 font-body-md text-body-md">Sector 7 (Downtown)</td>
 <td class="px-4 py-4">
@@ -348,11 +495,11 @@
 <td class="px-4 py-4">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-on-surface-variant">fire_truck</span>
-<span class="font-body-md text-body-md">Fire Truck</span>
+<span class="font-body-md text-body-md" data-i18n="vehicle.fireTruck">Fire Truck</span>
 </div>
 </td>
 <td class="px-4 py-4">
-<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-error/20">Maintenance</span>
+<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-error/20" data-i18n="status.maintenance">Maintenance</span>
 </td>
 <td class="px-4 py-4 font-body-md text-body-md">HQ Service Bay 2</td>
 <td class="px-4 py-4">
@@ -363,7 +510,7 @@
 <span class="text-xs font-bold text-error">15%</span>
 </div>
 </td>
-<td class="px-4 py-4 font-body-md text-body-md text-error font-bold">OVERDUE</td>
+<td class="px-4 py-4 font-body-md text-body-md text-error font-bold" data-i18n="table.overdue">OVERDUE</td>
 <td class="px-4 py-4 text-right">
 <button class="p-1 hover:bg-surface-container-high rounded opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined">more_vert</span>
@@ -376,11 +523,11 @@
 <td class="px-4 py-4">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-on-surface-variant">local_police</span>
-<span class="font-body-md text-body-md">Police Cruiser</span>
+<span class="font-body-md text-body-md" data-i18n="vehicle.policeCruiser">Police Cruiser</span>
 </div>
 </td>
 <td class="px-4 py-4">
-<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-primary/20">Dispatched</span>
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-primary/20" data-i18n="status.dispatched">Dispatched</span>
 </td>
 <td class="px-4 py-4 font-body-md text-body-md">Hwy 101 Exit 4</td>
 <td class="px-4 py-4">
@@ -404,11 +551,11 @@
 <td class="px-4 py-4">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-on-surface-variant">flight_takeoff</span>
-<span class="font-body-md text-body-md">Aerial Drone</span>
+<span class="font-body-md text-body-md" data-i18n="vehicle.aerialDrone">Aerial Drone</span>
 </div>
 </td>
 <td class="px-4 py-4">
-<span class="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-on-tertiary-container/20">Standby</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-on-tertiary-container/20" data-i18n="status.standby">Standby</span>
 </td>
 <td class="px-4 py-4 font-body-md text-body-md">Sector 3 Depot</td>
 <td class="px-4 py-4">
@@ -432,11 +579,11 @@
 <td class="px-4 py-4">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-on-surface-variant">emergency</span>
-<span class="font-body-md text-body-md">Paramedic SUV</span>
+<span class="font-body-md text-body-md" data-i18n="vehicle.paramedicSuv">Paramedic SUV</span>
 </div>
 </td>
 <td class="px-4 py-4">
-<span class="bg-[#e8f5e9] text-[#2e7d32] text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-[#2e7d32]/20">Available</span>
+<span class="bg-[#e8f5e9] text-[#2e7d32] text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider rounded border border-[#2e7d32]/20" data-i18n="status.available">Available</span>
 </td>
 <td class="px-4 py-4 font-body-md text-body-md">East Hospital</td>
 <td class="px-4 py-4">
@@ -458,7 +605,7 @@
 </table>
 <!-- Pagination Simulation -->
 <div class="px-4 py-3 bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Showing 1-5 of 142 units</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" data-i18n="pagination.caption">Showing 1-5 of 142 units</span>
 <div class="flex gap-1">
 <button class="p-2 border border-outline-variant hover:bg-surface-container-high rounded"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
 <button class="px-3 py-1 bg-primary text-on-primary font-bold rounded">1</button>
@@ -473,19 +620,19 @@
 <aside class="flex-1 space-y-gutter-sm min-w-[320px]">
 <div class="bg-surface border border-outline-variant p-4">
 <div class="flex items-center justify-between mb-4 pb-2 border-b border-outline-variant">
-<h3 class="font-headline-md text-label-md font-bold uppercase tracking-wider text-primary">Maintenance Alerts</h3>
-<span class="bg-error text-on-error text-[10px] font-bold px-2 py-0.5 rounded-full">3 URGENT</span>
+<h3 class="font-headline-md text-label-md font-bold uppercase tracking-wider text-primary" data-i18n="alerts.title">Maintenance Alerts</h3>
+<span class="bg-error text-on-error text-[10px] font-bold px-2 py-0.5 rounded-full" data-i18n="alerts.urgentBadge">3 URGENT</span>
 </div>
 <div class="space-y-3">
 <!-- Alert 1 -->
 <div class="p-3 bg-error-container border-l-4 border-error rounded-r flex gap-3 group relative">
 <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">error</span>
 <div>
-<p class="font-bold text-sm text-on-error-container">FIRE-09: Engine Fault</p>
-<p class="text-xs text-on-error-container/80 mt-1">O2 sensor failure detected. Vehicle must remain grounded until parts arrive from depot.</p>
+<p class="font-bold text-sm text-on-error-container" data-i18n="alerts.alert1.title">FIRE-09: Engine Fault</p>
+<p class="text-xs text-on-error-container/80 mt-1" data-i18n="alerts.alert1.body">O2 sensor failure detected. Vehicle must remain grounded until parts arrive from depot.</p>
 <div class="flex gap-2 mt-3">
-<button class="text-[10px] font-bold bg-error text-on-error px-2 py-1 rounded">DE-COMMISSION</button>
-<button class="text-[10px] font-bold border border-error text-error px-2 py-1 rounded">LOG DETAILS</button>
+<button class="text-[10px] font-bold bg-error text-on-error px-2 py-1 rounded" data-i18n="alerts.decommission">DE-COMMISSION</button>
+<button class="text-[10px] font-bold border border-error text-error px-2 py-1 rounded" data-i18n="alerts.logDetails">LOG DETAILS</button>
 </div>
 </div>
 </div>
@@ -493,35 +640,35 @@
 <div class="p-3 bg-on-secondary-container border-l-4 border-on-secondary-fixed-variant rounded-r flex gap-3">
 <span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">battery_alert</span>
 <div>
-<p class="font-bold text-sm text-on-secondary-fixed-variant">DRONE-22: Low Battery</p>
-<p class="text-xs text-on-secondary-fixed-variant/80 mt-1">Battery health degraded below 15% threshold. Internal resistance error reported.</p>
-<button class="text-[10px] font-bold mt-2 underline">REPLACE PACK</button>
+<p class="font-bold text-sm text-on-secondary-fixed-variant" data-i18n="alerts.alert2.title">DRONE-22: Low Battery</p>
+<p class="text-xs text-on-secondary-fixed-variant/80 mt-1" data-i18n="alerts.alert2.body">Battery health degraded below 15% threshold. Internal resistance error reported.</p>
+<button class="text-[10px] font-bold mt-2 underline" data-i18n="alerts.replacePack">REPLACE PACK</button>
 </div>
 </div>
 <!-- Alert 3 -->
 <div class="p-3 bg-surface-container-high border-l-4 border-outline rounded-r flex gap-3">
 <span class="material-symbols-outlined text-outline">build</span>
 <div>
-<p class="font-bold text-sm text-on-surface">ALPHA-12: Scheduled Care</p>
-<p class="text-xs text-on-surface-variant mt-1">Brake pad inspection due in 48 hours. Estimated downtime: 2 hours.</p>
+<p class="font-bold text-sm text-on-surface" data-i18n="alerts.alert3.title">ALPHA-12: Scheduled Care</p>
+<p class="text-xs text-on-surface-variant mt-1" data-i18n="alerts.alert3.body">Brake pad inspection due in 48 hours. Estimated downtime: 2 hours.</p>
 </div>
 </div>
 </div>
 <button class="w-full mt-6 border border-primary text-primary font-bold py-2 font-label-md flex items-center justify-center gap-2 hover:bg-primary-container/10 transition-colors">
-<span class="material-symbols-outlined">event</span> Schedule Maintenance
+<span class="material-symbols-outlined">event</span> <span data-i18n="alerts.scheduleMaintenance">Schedule Maintenance</span>
                         </button>
 </div>
 <!-- Fleet Map Snippet -->
 <div class="bg-surface border border-outline-variant p-4">
 <div class="flex items-center justify-between mb-4">
-<h3 class="font-headline-md text-label-md font-bold uppercase tracking-wider text-primary">Sector Distribution</h3>
+<h3 class="font-headline-md text-label-md font-bold uppercase tracking-wider text-primary" data-i18n="sector.title">Sector Distribution</h3>
 <span class="material-symbols-outlined text-on-surface-variant cursor-pointer">fullscreen</span>
 </div>
 <div class="h-48 w-full bg-surface-container-highest flex items-center justify-center relative overflow-hidden rounded">
 <div class="w-full h-full" id="neop-sector-map"></div>
 <div class="absolute bottom-3 left-3 z-[400] bg-surface/90 backdrop-blur-sm border border-outline-variant p-2 rounded pointer-events-none">
-<p class="text-[10px] font-bold text-on-surface-variant uppercase">Most Active: Sector 7</p>
-<p class="text-xs font-bold text-primary">24 Units En Route</p>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase" data-i18n="sector.mostActive">Most Active: Sector 7</p>
+<p class="text-xs font-bold text-primary" data-i18n="sector.unitsEnRoute">24 Units En Route</p>
 </div>
 </div>
 </div>

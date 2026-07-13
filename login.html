@@ -205,44 +205,44 @@
 <!-- Main Authentication Card -->
 <div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded shadow-sm overflow-hidden flex flex-col relative">
 <div class="bg-primary px-8 py-10 text-on-primary">
-<h1 class="font-headline-lg text-headline-lg mb-2">Institutional Access</h1>
-<p class="font-body-md opacity-80">Please authenticate to access the national incident response network.</p>
+<h1 class="font-headline-lg text-headline-lg mb-2" data-i18n="auth.title">Institutional Access</h1>
+<p class="font-body-md opacity-80" data-i18n="auth.subtitle">Please authenticate to access the national incident response network.</p>
 </div>
 <form class="p-8 space-y-6 flex-grow" id="login-form">
-<p class="hidden font-label-sm text-error bg-error-container/40 border border-error/30 rounded-lg px-4 py-2" id="login-error">Invalid credentials. Try user/user or admin/admin.</p>
+<p class="hidden font-label-sm text-error bg-error-container/40 border border-error/30 rounded-lg px-4 py-2" data-i18n="auth.error" id="login-error">Invalid credentials. Try user/user or admin/admin.</p>
 <div class="space-y-2">
-<label class="font-label-md text-on-surface-variant block" for="institutional-id">Institutional ID / Email</label>
+<label class="font-label-md text-on-surface-variant block" data-i18n="auth.idLabel" for="institutional-id">Institutional ID / Email</label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">badge</span>
-<input class="w-full bg-surface border border-outline rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md outline-none" id="institutional-id" name="institutional-id" placeholder="user or admin" type="text"/>
+<input class="w-full bg-surface border border-outline rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md outline-none" data-i18n-placeholder="auth.idPlaceholder" id="institutional-id" name="institutional-id" placeholder="user or admin" type="text"/>
 </div>
 </div>
 <div class="space-y-2">
 <div class="flex justify-between items-center">
-<label class="font-label-md text-on-surface-variant block" for="security-token">Security Token</label>
-<a class="font-label-sm text-primary hover:underline" href="#">Request New Token</a>
+<label class="font-label-md text-on-surface-variant block" data-i18n="auth.tokenLabel" for="security-token">Security Token</label>
+<a class="font-label-sm text-primary hover:underline" data-i18n="auth.tokenRequest" href="#">Request New Token</a>
 </div>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">vibration</span>
-<input class="w-full bg-surface border border-outline rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md outline-none" id="security-token" name="security-token" placeholder="password" type="password"/>
+<input class="w-full bg-surface border border-outline rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md outline-none" data-i18n-placeholder="auth.tokenPlaceholder" id="security-token" name="security-token" placeholder="password" type="password"/>
 </div>
 </div>
 <div class="pt-4">
 <button class="w-full bg-primary text-on-primary font-label-md py-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-sm" type="submit">
-                            SIGN IN
-                            <span class="material-symbols-outlined">login</span>
+<span data-i18n="auth.signIn">SIGN IN</span>
+<span class="material-symbols-outlined">login</span>
 </button>
 </div>
 <div class="flex items-center gap-2 text-on-surface-variant justify-center p-3 bg-surface-container-low rounded">
 <span class="material-symbols-outlined text-[18px]">verified_user</span>
-<span class="font-label-sm uppercase tracking-widest">End-to-End Encryption Active</span>
+<span class="font-label-sm uppercase tracking-widest" data-i18n="auth.encryption">End-to-End Encryption Active</span>
 </div>
 </form>
 </div>
 <!-- Contextual Portals Sidebar -->
 <div class="lg:col-span-5 flex flex-col gap-4">
 <div class="mb-2">
-<h2 class="font-label-md text-primary tracking-[0.2em] uppercase mb-1">Access Authorized Portals</h2>
+<h2 class="font-label-md text-primary tracking-[0.2em] uppercase mb-1" data-i18n="portals.title">Access Authorized Portals</h2>
 <div class="h-1 w-12 bg-secondary rounded"></div>
 </div>
 <!-- Portal Track: Command -->
@@ -253,8 +253,8 @@
 <span class="material-symbols-outlined text-[32px]">policy</span>
 </div>
 <div>
-<h3 class="font-headline-md text-label-md text-on-surface leading-tight">Command & Strategy</h3>
-<p class="font-label-sm text-on-surface-variant mt-1">Provincial & National Administrative oversight.</p>
+<h3 class="font-headline-md text-label-md text-on-surface leading-tight" data-i18n="portals.command.title">Command & Strategy</h3>
+<p class="font-label-sm text-on-surface-variant mt-1" data-i18n="portals.command.body">Provincial & National Administrative oversight.</p>
 </div>
 <span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary transition-colors">arrow_forward_ios</span>
 </div>
@@ -267,8 +267,8 @@
 <span class="material-symbols-outlined text-[32px]">hub</span>
 </div>
 <div>
-<h3 class="font-headline-md text-label-md text-on-surface leading-tight">Regional Oversight</h3>
-<p class="font-label-sm text-on-surface-variant mt-1">Supervisors and Operations Center personnel.</p>
+<h3 class="font-headline-md text-label-md text-on-surface leading-tight" data-i18n="portals.regional.title">Regional Oversight</h3>
+<p class="font-label-sm text-on-surface-variant mt-1" data-i18n="portals.regional.body">Supervisors and Operations Center personnel.</p>
 </div>
 <span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary transition-colors">arrow_forward_ios</span>
 </div>
@@ -281,8 +281,8 @@
 <span class="material-symbols-outlined text-[32px]">local_shipping</span>
 </div>
 <div>
-<h3 class="font-headline-md text-label-md text-on-surface leading-tight">Logistics & Fleet</h3>
-<p class="font-label-sm text-on-surface-variant mt-1">Supply chain and mobile asset management.</p>
+<h3 class="font-headline-md text-label-md text-on-surface leading-tight" data-i18n="portals.logistics.title">Logistics & Fleet</h3>
+<p class="font-label-sm text-on-surface-variant mt-1" data-i18n="portals.logistics.body">Supply chain and mobile asset management.</p>
 </div>
 <span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary transition-colors">arrow_forward_ios</span>
 </div>
@@ -291,10 +291,10 @@
 <div class="mt-auto bg-primary-container p-6 rounded-lg text-on-primary-container border border-primary/20">
 <div class="flex gap-4 items-center mb-3">
 <span class="material-symbols-outlined bg-on-primary-container/20 p-2 rounded-full text-white">contact_support</span>
-<h4 class="font-label-md text-white">System Support</h4>
+<h4 class="font-label-md text-white" data-i18n="support.title">System Support</h4>
 </div>
-<p class="font-label-sm text-on-primary-container">Experiencing authentication issues or token expiration? Contact the duty tech officer immediately.</p>
-<button class="mt-4 w-full border border-on-primary-container/40 text-on-primary-container font-label-sm py-2 rounded hover:bg-on-primary-container/10 transition-colors">
+<p class="font-label-sm text-on-primary-container" data-i18n="support.body">Experiencing authentication issues or token expiration? Contact the duty tech officer immediately.</p>
+<button class="mt-4 w-full border border-on-primary-container/40 text-on-primary-container font-label-sm py-2 rounded hover:bg-on-primary-container/10 transition-colors" data-i18n="support.button">
                         OPEN SUPPORT TICKET
                     </button>
 </div>
@@ -306,14 +306,14 @@
 <div class="flex items-center gap-6 mb-4 md:mb-0">
 <span class="font-label-md text-label-md text-primary">NEOP</span>
 <div class="flex gap-4">
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Security Policy</a>
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all duration-200" href="#">System Status</a>
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Contact Support</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all duration-200" data-i18n="footer.security" href="#">Security Policy</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all duration-200" data-i18n="footer.status" href="#">System Status</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all duration-200" data-i18n="footer.contact" href="#">Contact Support</a>
 </div>
 </div>
 <div class="flex items-center gap-3">
-<span class="bg-secondary text-white px-2 py-0.5 rounded font-label-sm uppercase text-[10px] tracking-widest">Classified System</span>
-<p class="font-label-sm text-on-surface-variant">© 2026 National Emergency Operations Platform. Internal Use Only.</p>
+<span class="bg-secondary text-white px-2 py-0.5 rounded font-label-sm uppercase text-[10px] tracking-widest" data-i18n="footer.classified">Classified System</span>
+<p class="font-label-sm text-on-surface-variant" data-i18n="footer.copyright">© 2026 National Emergency Operations Platform. Internal Use Only.</p>
 </div>
 </footer>
 <script>
